@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .block-label {
+        display: block;
+      }
+      #submit-button {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label class="block-label">Name:</label>
+      <input type="text" />
+      <label class="block-label">Email:</label>
+      <input type="email" />
+      <label class="block-label">Message:</label>
+      <textarea></textarea>
+      <div>
+        <label>Gender:</label>
+        <input type="radio" />Male <input type="radio" />Female
+        <input type="radio" />Other
+      </div>
+      <div>
+        <label class="inline-label">Interests:</label>
+        <input type="checkbox" />Programming
+        <input type="checkbox" />Design
+        <input type="checkbox" />Gaming
+        <input type="submit" id="submit-button" />
+      </div>
+    </form>
+  </body>
+</html>
