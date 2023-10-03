@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motivational Poster</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: black;
+        color: ghostwhite;
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        margin: 0;
+      }
+
+      #container {
+        width: 700px;
+        margin: auto;
+        text-align: center;
+      }
+
+      #alphabet-top {
+        margin: 20px;
+      }
+
+      #main-content {
+        font-weight: 700;
+        font-size: 150px;
+      }
+
+      #alphabet-bottom {
+        margin: 20px;
+      }
+      
+      #overlay-nt {
+        backdrop-filter: blur(7px);
+        position: absolute;
+        width: 250px;
+        height: 150px;
+        /*background-color: red;*/
+        transform: translate(350px,-10px);
+      }
+
+      #overlay-qu {
+        backdrop-filter: blur(7px);
+        position: absolute;
+        width: 250px;
+        height: 150px;
+        /*background-color: green;*/
+        transform: translate(150px,140px);
+      }
+
+      #overlay-bottom-alphabet {
+        backdrop-filter: blur(1px);
+        position: absolute;
+        width: 700px;
+        height: 50px;
+        /*background-color: blue;*/
+        transform: translate(0px,300px);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="alphabet-top">
+        A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9
+      </div>
+      <div id="overlay-nt"></div>
+      <div id="overlay-qu"></div>
+      <div id="overlay-bottom-alphabet"></div>
+      <div id="main-content">DON'T<br />QUIT</div>
+      <div id="alphabet-bottom">
+        A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9
+      </div>
+    </div>
+  </body>
+</html>
