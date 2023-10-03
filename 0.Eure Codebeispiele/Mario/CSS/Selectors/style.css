@@ -4,4 +4,18 @@ ol {
   list-style-position: inside;
 }
 
+
+#id-selector-demo {
+  color:green;
+}
+
+
+
+.note {
+  font-size: 20px;
+}
+
+
+
+
 /* Schreibe deinen CSS Code ab hier, don't change the rules above. */
