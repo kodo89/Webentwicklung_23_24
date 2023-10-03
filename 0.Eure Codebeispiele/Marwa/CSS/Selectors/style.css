@@ -3,5 +3,21 @@ ol {
   margin-top: -20px;
   list-style-position: inside;
 }
-
 /* Schreibe deinen CSS Code ab hier, don't change the rules above. */
+p{
+  color: red;
+}
+li{
+font-size: 20px;
+}
+
+#id-selector-demo{
+color: green;
+}
+
+body{
+text-align: center;
+}
+.note[value = "4"] {
+color: blue;
+}
