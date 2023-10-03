@@ -1,19 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS Box Model</title>
+    <style>
+      /* Write your CSS code here */
+      div {
+        width: 200px;
+        height: 200px;
+        border:solid black;
+        border-width: 10px;
+        
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <title>CSS Box Model</title>
-  <style>
-    /* Write your CSS code here */
+      #Box1 {
+        background-color: cadetblue;
+        padding: 20px;
 
-  </style>
-</head>
+        
 
-<body>
+        
+      }
+      #Box2 {
+        background-color: gold;
+        border-top-width: 20px;
+        border-bottom-width: 20px;
+        margin-left: 260px;
 
+        
+        
+      }
 
-  <!-- TODOs:
+      #Box3 {
+        background-color: indianred;
+        margin-left: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- TODOs:
 1. Create 3 Boxes using the div element.
 2. Set their sizes to 200px heigh by 200px wide.
 3. Set different background colors for each of the boxes (I used cadetblue, gold and indianred).
@@ -27,7 +53,13 @@
 8. Set the 3rd div to have a 10px border 
 9. Set the margins for the divs so that each box corner touches the other. (See the goal image)
 -->
-
-</body>
-
+    <div id="Box1">
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+      eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+      voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+      clita kasd gubergren, no sea takimata sanctus est Lore </p>
+    </div>
+    <div id="Box2"></div>
+    <div id="Box3"></div>
+  </body>
 </html>
