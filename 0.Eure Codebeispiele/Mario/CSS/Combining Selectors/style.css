@@ -1,1 +1,28 @@
 /* Write your code here: */
+
+h1, h2 {
+    color:blueviolet;
+}
+
+
+
+div p {
+    color: red;
+}
+
+ul li {
+    color: blue;
+}
+
+li + li {
+
+    color: green;
+}
+
+
+ul > p {
+    font-size: smaller;
+}
+
+
+

@@ -1,0 +1,18 @@
+body {
+    text-align: center;
+}
+
+
+div {
+    background-color: black;
+    border-width: 20px;
+    border: solid black;
+    border-width: 20px;
+    border-bottom-width: 50px;
+    
+}
+p {
+    color:white;
+    font-size: 20px;
+    
+}
