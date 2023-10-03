@@ -1,1 +1,26 @@
 /* Write your code here: */
+ol {
+    margin-left: -40px;
+    margin-top: -20px;
+    list-style-position: inside;
+  } 
+body{
+    background-color: white;
+  }
+  h1,h2{
+    color:blueviolet
+    
+  }
+  p.done{
+    color: red;
+  }
+  li{
+    color:blue;
+  }
+  li.done{
+    color:green
+  }
+  ul>p{
+    font-size: smaller;
+  }
+  
