@@ -1,16 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS Flag Project</title>
+    <style>
+      /* Write your CSS Code here */
 
-<head>
-  <meta charset="UTF-8">
-  <title>CSS Flag Project</title>
-  <style>
-    /* Write your CSS Code here */
-    
-  </style>
-</head>
+      .flag {
+        position: static;
+        width: 900px;
+        height: 600px;
+        padding: 0px;
+        background-color: red;
+      }
 
-<!-- 
+      .flag > p {
+        font-size: 60px;
+        color: white;
+        text-align: center;
+        margin: 0px;
+      }
+
+      div > div {
+        position: relative;
+        top: 50px;
+        left: 350px;
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        background-color: white;
+      }
+
+      p + div {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 300px;
+        border-radius: 0px;
+        background-color: blue;
+        text-align: center;
+        font-size: 80px;
+      }
+    </style>
+  </head>
+
+  <!-- 
 WICHTIG! Ändere nicht das HTML. Füge keine Klassen/IDs/Elemente hinzu. Nutze dein Wissen über das Kombinieren von Selektoren und die Spezifität von CSS stattdessen.
 
 Hinweis 1: Die Flagge hat Abmessungen von 900px x 600px, und der Kreis ist 200px x 200px groß.
@@ -18,15 +53,14 @@ Hinweis 1: Die Flagge hat Abmessungen von 900px x 600px, und der Kreis ist 200px
 Hinweis 2: Du kannst folgende Farben verwenden #CE1126, #002868
 -->
 
-<body>
-  <div class="flag">
-    <p>The Flag</p>
-    <div>
+  <body>
+    <div class="flag">
+      <p>The Flag</p>
       <div>
-        <p>of Laos</p>
+        <div>
+          <p>of Laos</p>
+        </div>
       </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
