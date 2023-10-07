@@ -4,11 +4,100 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <style>
+      .test {
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .test2{
+        color: red;
+      }
+      
+      p {
+        color: blue;
+      }
+
+      #idDemo {
+        color: green;
+      }
+
+      ul:hover{
+        color: blueviolet;
+      }
+
+      li:nth-child(2){
+        font-weight: bold;
+      }
+
+      .testp::after{
+        content: ' testing!!';
+      }
+
+      li[value="4"]
+    {
+        color: blue;
+    }
+
+    ol.qwer{
+      color: aqua;
+    }
+
+    h2, h3{
+      color: blueviolet;
+    }
+
+    section p{
+      color: brown;
+    }
+
+    ol > li{
+      color: yellowgreen;
+    }
+
+
+
+    </style>
+
+
+
+
+
+
+
   </head>
   <body>
-    <h1>Hallo</h1>
+    <h1 id="idDemo">Hallo</h1>
+    <h2>Überschrift h2</h2>
+    <h3>Überschrift h3</h3>
     <hr />
-    <p>Hier steht Text</p>
+    <p class="test">Hier steht Text</p>
+    <p class="test test2">asdkj klasdj </p>
+    <p class="testp">askldj aksljd</p>
+
+    <ul id="idtest">
+      <li>lorem1</li>
+      <li>lorem2</li>
+      <li value="4">lorem3</li>
+      <li>lorem4</li>
+    </ul>
+
+    <ol>
+      <li>lorem1</li>
+      <li>lorem2</li> 
+      <li>lorem1</li>
+      <li>lorem2</li>
+    </ol>
+
+    <section>
+      <p>asdasdd</p>
+      <p>asdasdsa</p>
+      <p>asdasd</p>
+      <p>asdsadasd</p>
+    </section>
+
+  
 
 
     <iframe 
