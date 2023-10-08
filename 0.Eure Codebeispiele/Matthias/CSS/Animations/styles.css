@@ -1,1 +1,66 @@
 /*hier kommt dein CSS Code um das Tennismatch zum Leben zu erwecken*/
+body {
+  background-image: url(tenniscourt.png);
+  background-repeat: no-repeat;
+  background-size: 75%;
+}
+
+.racket,
+.racket-right {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 360px;
+}
+
+.racket {
+    animation: racket 2.5s infinite;
+}
+
+.racket-right {
+  left: 1300px;
+  animation: racket-right 2.5s 1.15s infinite;
+}
+
+.ball {
+  background-color: yellow;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 380px;
+  animation: ball 2.5s .1s infinite;
+}
+
+@keyframes ball {
+  0% {
+    left: 80px;
+  }
+  25% {
+    transform: scale(2);
+  }
+  50% {
+    left: 1330px;
+    transform: scale(1)
+  }
+  75% {
+    transform: scale(2);
+  }
+  100% {
+    left: 80px;
+  }
+}
+
+@keyframes racket {
+    0% { transform: rotateY(-120deg); }
+    10% { transform: rotateY(0deg); }
+    50% { transform: rotateY(0deg); transform: translateX(-20px); }
+    100% { transform: rotateY(-120deg);}
+}
+
+@keyframes racket-right {
+    0% { transform: rotateY(300deg); }
+    10% { transform: rotateY(180deg); }
+    50% { transform: rotateY(180deg); transform: translateX(30px); }
+    100% { transform: rotateY(300deg); }
+}
