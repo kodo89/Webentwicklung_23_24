@@ -19,3 +19,43 @@ footer {
   color: midnightblue;
 }
 
+#idSpan {
+  color:blue;
+}
+
+
+.tile-image{
+  float: left;
+  height: 200px;
+}
+
+
+
+.card{
+  width: 40%;
+}
+
+
+.left{
+  float: left;
+}
+
+
+.right{
+  float: right;
+}
+
+
+@media (min-width: 400px) and (max-width: 600px){
+  .right{
+    clear: both;
+    float: left;
+  }
+
+
+
+}
+
+
+
+
