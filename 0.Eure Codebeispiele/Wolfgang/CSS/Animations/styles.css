@@ -1,1 +1,55 @@
 /*hier kommt dein CSS Code um das Tennismatch zum Leben zu erwecken*/
+
+body {
+
+  
+    background-image: url(tenniscourt.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    z-index: -1;
+}
+
+div {
+    position: relative;
+        left: 1100px;
+        top: 300px;
+        border-radius: 50%;
+        background-color: red;
+        width: 25px;
+        height: 25px;
+        animation: mymove 5s infinite;
+    
+}
+.racket {
+    float:left;
+    padding:25%;
+    padding-left: 0;
+        width: 100px;
+        height:100px;
+    width: 100px;
+    height: 100px;
+    animation: rotateschläger 5s infinite;
+}
+
+.racket-right {
+    float:right;
+padding:25%;
+padding-right: 0;
+    width: 100px;
+    height:100px;
+}
+
+@keyframes mymove {
+    
+
+    0% {left: 1100px;´top: 300px;}
+    50% {left:100px; top: 300px;}
+    
+  }
+
+  @keyframes rotateschläger {
+    0% { transform: rotate(0deg);   }
+    100% { transform: rotate(360deg);}
+    
+  
+  }
