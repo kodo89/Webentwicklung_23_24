@@ -12,6 +12,7 @@ body {
 
 h1 {
   font-size: 5rem;
+  width: 60%;
 }
 
 
@@ -57,12 +58,16 @@ footer {
     }
 
     .card img {
-        width: 90%;
+        float: none;
+        width: 80%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     h1 {
+        width: 100%;
         font-size: 3rem;
-        text-align: center;
     }
 
     .logo {
