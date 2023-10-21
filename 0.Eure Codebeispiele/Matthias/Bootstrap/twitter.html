@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <style>
+      div,
+      header {
+        border: 0px dotted gray;
+      }
+    </style>
+  </head>
+
+  <body data-bs-theme="dark">
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div class="toast" role="alert" id="toast-register">
+        <div class="toast-header">Registration successful</div>
+        <div class="toast-body">
+          You have been successfully registerd for Y!<br />You are ready to go!
+        </div>
+      </div>
+    </div>
+
+    <div class="container-sm">
+      <div class="grid">
+        <header class="row">
+          <div class="col-2 p-3">Logo</div>
+          <div class="col p-3">Überschrift</div>
+        </header>
+        <div class="row">
+          <div class="col-4 p-5" style="background-color: black">
+            Profilbild Upload
+          </div>
+          <div class="col">
+            <div class="row">
+              <div class="col-12 p-5">
+                <form class="needs-validation" id="form-register" novalidate>
+                  <div class="form-floating mb-4">
+                    <input
+                      type="text"
+                      id="firstname"
+                      class="form-control"
+                      placeholder="First name"
+                      required
+                    />
+                    <label for="firstname" class="form-label">First name</label>
+                    <div class="invalid-feedback">
+                      Please enter your first name!
+                    </div>
+                  </div>
+                  <div class="form-floating mb-4">
+                    <input
+                      type="text"
+                      id="lastname"
+                      class="form-control"
+                      placeholder="Last name"
+                      required
+                    />
+                    <label for="lastname" class="form-label">Last name</label>
+                    <div class="invalid-feedback">
+                      Please enter your last name!
+                    </div>
+                  </div>
+                  <div class="form-floating mb-4">
+                    <input
+                      type="email"
+                      id="email"
+                      class="form-control"
+                      placeholder="E-Mail"
+                      required
+                    />
+                    <label for="email" class="form-label">E-Mail</label>
+                    <div class="form-text">
+                      We will never share your e-mail address with anyone!
+                    </div>
+                    <div class="invalid-feedback">
+                      Please enter your e-mail address!
+                    </div>
+                  </div>
+                  <div class="form-floating mb-4">
+                    <input
+                      type="password"
+                      id="password"
+                      class="form-control"
+                      placeholder="password"
+                      required
+                    />
+                    <label for="password" class="form-label">Password</label>
+                    <div class="invalid-feedback">
+                      Please enter your password!
+                    </div>
+                  </div>
+                  <div class="d-flex mt-5">
+                    <button
+                      class="btn btn-primary"
+                      type="submit"
+                      id="submit-button"
+                    >
+                      Register
+                    </button>
+                    <button class="btn btn-secondary ms-4" type="button">
+                      Go to Login
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (() => {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              } else {
+                event.preventDefault();
+                event.stopPropagation();
+                console.log("Submitted!");
+                showToastRegistered();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+
+        function showToastRegistered() {
+          const toastRegister = document.getElementById("toast-register");
+          const toastInstance =
+            bootstrap.Toast.getOrCreateInstance(toastRegister);
+          toastInstance.show();
+        }
+      })();
+    </script>
+  </body>
+</html>
