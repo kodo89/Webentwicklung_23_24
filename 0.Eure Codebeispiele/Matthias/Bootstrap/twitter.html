@@ -18,7 +18,7 @@
     </style>
   </head>
 
-  <body data-bs-theme="dark">
+  <body data-bs-theme="light">
     <div class="toast-container position-fixed top-0 end-0 p-3">
       <div class="toast" role="alert" id="toast-register">
         <div class="toast-header">Registration successful</div>
@@ -32,10 +32,22 @@
       <div class="grid">
         <header class="row">
           <div class="col-2 p-3">Logo</div>
-          <div class="col p-3">Überschrift</div>
+          <div class="col"></div>
+          <div class="d-flex justify-content-end align-items-center col-3">
+            <span class="me-3">Dark</span>
+            <div class="form-check form-switch">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="switch-color-mode"
+              />
+              <span class="ms-2">Light</span>
+            </div>
+          </div>
         </header>
         <div class="row">
-          <div class="col-4 p-5" style="background-color: black">
+          <div class="col-4 p-5">
             Profilbild Upload
           </div>
           <div class="col">
@@ -105,7 +117,7 @@
                     >
                       Register
                     </button>
-                    <button class="btn btn-secondary ms-4" type="button">
+                    <button class="btn btn-outline-secondary ms-4" type="button">
                       Go to Login
                     </button>
                   </div>
@@ -159,5 +171,6 @@
         }
       })();
     </script>
+    <script src="colormode.js" type="module"></script>
   </body>
 </html>
