@@ -6,16 +6,39 @@ body {
   flex-direction: column;
   min-height: 95vh;
 }
+
 .main {
   flex: 1;
 }
 
 h1 {
+  text-align: center;
   font-size: 5rem;
 }
 
 footer {
   text-align: right;
   color: midnightblue;
+}
+
+.left{
+  float: left;
+}
+
+.right{
+  float: right;
+}
+
+.card{
+  width: 40%;
+}
+
+span{
+  color: darkblue;
+}
+
+.title-image{
+  float: left;
+  width: 200px;
 }
 
