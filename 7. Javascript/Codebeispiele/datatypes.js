@@ -15,6 +15,8 @@ let nullVar = null
 
 let undefinedVar
 
+let notANumber = 12/"a"
+
 console.log(typeof myNumber);
 console.log(typeof myString);
 console.log(typeof myBoolean);
@@ -22,6 +24,7 @@ console.log(typeof myArray);
 console.log(typeof myObject);
 console.log(typeof nullVar)
 console.log(typeof undefinedVar)
+console.log(typeof(notANumber));
 
 
 let myYodaString = "Coden Ihr wollt lernen junge CodersBay Schüler";
