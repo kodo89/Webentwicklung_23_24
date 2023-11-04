@@ -43,6 +43,6 @@ if(number.indexOf('.') >= 0) {
 
 if(number % 2 == 0) {
     alert("Even number");
-} else if(number % 2 == 1) {
+} else {
     alert("Odd number");
 }
