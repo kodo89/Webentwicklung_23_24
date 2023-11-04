@@ -1,1 +1,31 @@
 /* Write your code here: */
+
+h1 {
+    color: rgb(204, 94, 204);
+  }
+  
+  h2 {
+    color: rgb(204, 94, 204);
+  }
+  
+  div p{
+    
+    color: red;
+    font-size: 20px;
+    
+  }
+  
+  
+  ul li {
+    color: blue;
+  }
+  li.done{
+    color:green;
+  }
+  
+  ul p.done {
+    font-size: small;
+  }
+  
+  
+  

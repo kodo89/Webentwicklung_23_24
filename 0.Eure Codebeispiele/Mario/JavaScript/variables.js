@@ -7,7 +7,20 @@ let b = "8";
 // Eingabe von Zahlen oder Strings ist nicht erlaubt
 
 
+
+let c = a;
+a = b;
+b = c;
+
+
+
+
+
 /***********Ändere nicht den Code darunter👇*******/
 
 console.log("a is " + a);
 console.log("b is " + b);
+
+
+
+

@@ -7,15 +7,61 @@ body {
   min-height: 95vh;
 }
 .main {
+  
   flex: 1;
+  
+}
+
+div {
+  display: block;
+}
+
+div.left-card {
+  float: left;
+ width: 45%;
+  height: 400px;
+}
+div.right-card {
+  float: right;
+ width: 45%;
+  height: 400px;
+}
+
+.logo {
+
+float: left;
+width: 250px;
+height: 50px;
+}
+span {
+  color:blue;
 }
 
 h1 {
+  display: block;
   font-size: 5rem;
+  width: 72%;
+ 
+
 }
+
+.tile-image {
+  float: left;
+  padding:30px;
+}
+
 
 footer {
   text-align: right;
   color: midnightblue;
 }
+
+img {
+  width: 350px;
+  height: 200px;
+}
+
+
+
+
 
