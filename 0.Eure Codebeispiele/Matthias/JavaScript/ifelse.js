@@ -33,15 +33,16 @@ let num2 = prompt("Number 2:");
 let num3 = prompt("Number 3:");
 
 alert("Maximum: " + num1 > num2 ? (num1 > num3 ? num1 : num3) : (num2 > num3 ? num2 : num3));
-  
+
 //Lies eine Zahl vom Benutzer ein, und gebe aus, ob diese gerade, ungerade oder eine Kommazahl ist.
 let number = prompt("Number: ");
 
 if(number.indexOf('.') >= 0) {
     alert("Comma number");
-} else if(number % 2 == 0) {
-    alert("Even number");
-} else {
-    alert("Odd number");
 }
 
+if(number % 2 == 0) {
+    alert("Even number");
+} else if(number % 2 == 1) {
+    alert("Odd number");
+}
