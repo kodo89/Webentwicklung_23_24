@@ -1,7 +1,9 @@
 //Lies vom Nutzer eine Temperatur ein, nutze ein if/else-if/else um auszugeben, ob es kalt, angenehm oder heiß ist.
-let temperature = prompt("Temperature: ");
+let temperature = prompt("Temperature (°C): ");
 
-if(temperature < 15) {
+if(temperature < -273) {
+    alert("I don't think that's possible.");
+} else if(temperature < 15) {
     alert("Brrr, it's cold!");
 } else if(temperature < 28) {
     alert("Nice temperature.");
@@ -31,13 +33,15 @@ let num2 = prompt("Number 2:");
 let num3 = prompt("Number 3:");
 
 alert("Maximum: " + num1 > num2 ? (num1 > num3 ? num1 : num3) : (num2 > num3 ? num2 : num3));
-  
+
 //Lies eine Zahl vom Benutzer ein, und gebe aus, ob diese gerade, ungerade oder eine Kommazahl ist.
 let number = prompt("Number: ");
 
 if(number.indexOf('.') >= 0) {
     alert("Comma number");
-} else if(number % 2 == 0) {
+}
+
+if(number % 2 == 0) {
     alert("Even number");
 } else {
     alert("Odd number");
