@@ -1,7 +1,9 @@
 //Lies vom Nutzer eine Temperatur ein, nutze ein if/else-if/else um auszugeben, ob es kalt, angenehm oder heiß ist.
-let temperature = prompt("Temperature: ");
+let temperature = prompt("Temperature (°C): ");
 
-if(temperature < 15) {
+if(temperature < -273) {
+    alert("I don't think that's possible.");
+} else if(temperature < 15) {
     alert("Brrr, it's cold!");
 } else if(temperature < 28) {
     alert("Nice temperature.");
@@ -42,3 +44,4 @@ if(number.indexOf('.') >= 0) {
 } else {
     alert("Odd number");
 }
+
