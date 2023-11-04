@@ -18,18 +18,9 @@ console.log(valueResult2);
 
 
 
-function pow(v1, v2 = v1){
+function pow(v1, v2 = 2){
     let value3;
-
-
-    if(v2 == v1){
-        value3 = v1**v1;
-    } else{
-        value3 = v1**v2;
-    }
-
-
-
+    value3 = v1**v2;
     return value3;
 }
 
