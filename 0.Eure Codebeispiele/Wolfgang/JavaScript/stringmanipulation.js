@@ -5,3 +5,13 @@ Bsp: mAx mUSterMann wird zu Max Mustermann*/
 
 
 //Führe den Code im Browser Snippet Tool aus 
+let name = prompt(`bitte Namen eingeben`);
+
+let leerzeichen = name.indexOf(" ");
+
+let vorname = name[0].toUpperCase() +  name.slice(1,leerzeichen); 
+
+let nachname = name[leerzeichen+1].toUpperCase()+name.slice(leerzeichen+2);  
+             
+
+alert(vorname+" "+nachname);
