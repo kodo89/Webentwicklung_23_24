@@ -43,9 +43,10 @@ let numberInput = prompt("Enter a number:");
 
 if (numberInput % 2 == 0) {
   alert("Even number");
-} else if (numberInput % 3 == 0) {
+} else if (numberInput % 2 == 1) {
   alert("Odd number");
 } else {
   alert("decimal number");
 }
+
 
