@@ -43,7 +43,6 @@ alert(field[choosePerson][chosseInformationOfPerson]);
 
 
 
-
 // Aufgabe4:
 const array = [
     {
