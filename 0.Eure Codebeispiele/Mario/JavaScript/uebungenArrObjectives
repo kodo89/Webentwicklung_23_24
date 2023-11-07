@@ -13,7 +13,7 @@ while (i < 1) {
     }
 }
 
-alert("It´s day "+dayOfWeek[number-1]);
+alert("It´s "+dayOfWeek[number-1]);
 
 
 
@@ -35,7 +35,6 @@ const field = [
     ["Georg", "Huber", 37],
     ["Fritz", "Mayr", 19],    
 ]
-
 
 let choosePerson = prompt("Wähle eine Person zwischen 0 und 2");
 let chosseInformationOfPerson = prompt("Wähle 0 um den Vornamen, 1 um den Nachnamen und 2 um das Alter zu erhalten");
@@ -64,13 +63,8 @@ const array = [
     },
 ];
 
-
-
-
-
 let printArray = array[0].firstName;
 console.log(printArray);
-
 
 let varRow = prompt("Gib eine Zeilennummer ein");
 let varColomn = prompt("Wähle eine Spalte: firstName, secondName or age");
