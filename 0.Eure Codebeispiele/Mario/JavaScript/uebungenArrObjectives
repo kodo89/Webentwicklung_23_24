@@ -1,0 +1,79 @@
+
+// Aufgabe1:
+const dayOfWeek = ["monday", "tuesday", "wednesday", "thirsday", "friday", "saturday", "sunday"];
+
+let number = prompt("Gib eine Zahl ein");
+
+
+
+alert("It´s day "+dayOfWeek[number]);
+
+
+
+// Aufgabe2:
+const car = {
+    brand : "BMW",
+    model : "116d",
+    horsePower : 116,
+   
+};
+
+
+console.log(`brand: ${car.brand}, Modell: ${car.brand}, PS: ${car.horsePower}`);
+
+
+
+// Aufgabe3:
+
+
+const field = [
+    ["Hans", "Müller", 22],
+    ["Georg", "Huber", 37],
+    ["Fritz", "Mayr", 19],    
+]
+
+
+let choosePerson = prompt("Wähle eine Person zwischen 0 und 2");
+let chosseInformationOfPerson = prompt("Wähle 0 um den Vornamen, 1 um den Nachnamen und 2 um das Alter zu erhalten");
+
+alert(field[choosePerson][chosseInformationOfPerson]);
+
+
+
+
+// Aufgabe4:
+const array = [
+    {
+        firstName: "Hans",
+        secondName: "Müller",
+        age: 22,        
+    },
+    {
+        firstName: "Hans",
+        secondName: "Huber",
+        age: 37,        
+    },
+    {
+        firstName: "Fritz",
+        secondName: "Mayr",
+        age: 19,        
+    },
+];
+
+
+
+
+
+let printArray = array[0].firstName;
+console.log(printArray);
+
+
+let varRow = prompt("Gib eine Zeilennummer ein");
+let varColomn = prompt("Wähle eine Spalte: firstName, secondName or age");
+
+alert("you choosed: " + array[varRow][varColomn]);
+
+
+
+
+
