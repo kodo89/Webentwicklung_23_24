@@ -6,7 +6,7 @@ const weight = prompt("Gib dein Gewicht in kg ein!");
 const height = prompt("Gib deine Größe in m ein!")
 
 function bmi(weight, height) {
-    const bmi = weight / height**2
+    const bmi = weight / height**2;
     return bmi;
 }
 
