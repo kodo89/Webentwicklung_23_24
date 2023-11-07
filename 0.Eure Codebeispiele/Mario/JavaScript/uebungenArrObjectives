@@ -2,11 +2,18 @@
 // Aufgabe1:
 const dayOfWeek = ["monday", "tuesday", "wednesday", "thirsday", "friday", "saturday", "sunday"];
 
-let number = prompt("Gib eine Zahl ein");
+let i = 0;
+let number = 0;
+number = prompt("Gib eine Zahl zwischen 1 und 7 ein: 1 = monday, 2 = tuesday etc.");
+while (i < 1) {
+    if (number >= 1 && number <= 7) {
+        i++;
+    } else{
+        number = prompt("Zahl außerhalb des Wertebereichs - Gib eine Zahl erneut ein");
+    }
+}
 
-
-
-alert("It´s day "+dayOfWeek[number]);
+alert("It´s day "+dayOfWeek[number-1]);
 
 
 
@@ -18,14 +25,11 @@ const car = {
    
 };
 
-
 console.log(`brand: ${car.brand}, Modell: ${car.brand}, PS: ${car.horsePower}`);
 
 
 
 // Aufgabe3:
-
-
 const field = [
     ["Hans", "Müller", 22],
     ["Georg", "Huber", 37],
