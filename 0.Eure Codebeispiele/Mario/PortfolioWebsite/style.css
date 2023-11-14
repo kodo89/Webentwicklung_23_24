@@ -1,6 +1,4 @@
 
-
-
 #divHead {
     position: fixed;
     width: 100%;
@@ -18,7 +16,7 @@
     height: 600px;
     border: 0px solid black;
     padding: 0px;
-    background-color: rgb(95, 105, 76);
+    
 }
 
 
