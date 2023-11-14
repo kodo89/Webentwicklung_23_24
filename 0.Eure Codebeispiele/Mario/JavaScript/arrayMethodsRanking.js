@@ -10,7 +10,6 @@ const participants = [
 
 //   Aufgaben:
 // Verwende die forEach-Methode, um jeden Teilnehmer und seine Punktzahl auszugeben.
-
 participants.forEach((element, index) => console.log(index, element.name + " hat " + element.points + " Punkte!"));
 console.log(" ");
 
