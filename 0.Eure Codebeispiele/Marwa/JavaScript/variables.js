@@ -6,6 +6,10 @@ let b = "8";
 // Schreibe Code mit dem die Werte für a und b vertauscht werden
 // Eingabe von Zahlen oder Strings ist nicht erlaubt
 
+let c = a;
+a = b;
+b = c;
+
 
 /***********Ändere nicht den Code darunter👇*******/
 
