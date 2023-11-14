@@ -13,4 +13,4 @@ vorname = vorname[0].toUpperCase()+vorname.slice(1, positionOfLeerzeichen);
 nachname = nachname[0].toUpperCase()+nachname.slice(1);
 
 alert("Dein Name lautet: "+vorname+" "+nachname)
-//Führe den Code im Browser Snippet Tool aus 
+//Führe den Code im Browser Snippet Tool aus */
