@@ -1,0 +1,89 @@
+
+#divHead{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    border: 0px solid black;
+    padding: 0px;
+    background-color: rgb(95, 122, 44);
+
+}
+
+#divWork {
+    position: relative;
+    width: 100%;
+    top: 100px;
+    height: 500px;
+    border: 0px solid black;
+    padding: 0px;
+    background-color: rgb(95, 122, 44);
+    
+}
+
+#divAbout {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border: 0px solid black;
+    padding: 0px;
+    background-color: rgb(95, 122, 44)
+}
+
+
+
+#divPlay {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border: 0px solid black;
+    padding: 0px;
+    background-color: rgb(95, 122, 44)
+}
+
+#divContact {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border: 0px solid black;
+    padding: 0px;
+    background-color: rgb(95, 122, 44)
+}
+
+.flex-container {
+    display: flex;
+    gap: 10px;
+    flex-grow: 1;
+  }
+
+#divNotes{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border: 0px solid black;
+    padding: 0px;
+    background-color: rgb(95, 122, 44)
+}
+
+#divInProgress {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border: 0px solid black;
+    padding: 0px;
+    background-color: rgb(95, 122, 44);
+}
+
+#innerProgress{
+    border-bottom: 1px solid grey;
+    height: 70%;
+    padding: 20px;
+    width: 80%;
+    padding: 40px;
+    margin: auto; 
+}
+
+
+#fontProgress{
+    color: black;
+}
+
