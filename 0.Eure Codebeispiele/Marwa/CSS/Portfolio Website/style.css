@@ -1,96 +1,79 @@
 
-#divHead {
-    position: fixed;
+#divHead{
+    position: relative;
     width: 100%;
     height: 100px;
     border: 0px solid black;
     padding: 0px;
-    background-color: white;
-    z-index: 100;
+    background-color: rgb(95, 122, 44);
+
 }
 
-#divIntro {
+#divWork {
     position: relative;
     width: 100%;
     top: 100px;
-    height: 600px;
+    height: 500px;
     border: 0px solid black;
     padding: 0px;
+    background-color: rgb(95, 122, 44);
     
 }
 
-
-#divAboutMe {
+#divAbout {
     position: relative;
     width: 100%;
     height: 500px;
     border: 0px solid black;
     padding: 0px;
-    background-color: rgb(56, 70, 30);
+    background-color: rgb(95, 122, 44)
 }
 
 
 
-#divProjects {
+#divPlay {
     position: relative;
     width: 100%;
     height: 500px;
     border: 0px solid black;
     padding: 0px;
-    background-color: rgb(56, 70, 30);
+    background-color: rgb(95, 122, 44)
 }
-
 
 #divContact {
     position: relative;
     width: 100%;
     height: 500px;
     border: 0px solid black;
-    padding-top: 20px;
-    background-color: white;
-    
+    padding: 0px;
+    background-color: rgb(95, 122, 44)
 }
 
-#contactFormular{
-    background-color:aliceblue;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    
-}
+.flex-container {
+    display: flex;
+    gap: 10px;
+    flex-grow: 1;
+  }
 
-
-#divImpressum {
+#divNotes{
     position: relative;
     width: 100%;
-    height: 150px;
+    height: 500px;
     border: 0px solid black;
-    padding-top: 10px;
-    background-color: black;
+    padding: 0px;
+    background-color: rgb(95, 122, 44)
 }
 
-
-
-.head{
-    text-align: center;
+#divInProgress {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border: 0px solid black;
+    padding: 0px;
+    background-color: rgb(95, 122, 44);
 }
 
-#submitButton{
-    text-align: end;
-    
-}
-
-
-#contactFormular div {
-    margin-top: 10px;
-}
-
-
-
-
-
-#divInnerImpressum{
+#innerProgress{
     border-bottom: 1px solid grey;
     height: 70%;
     padding: 20px;
@@ -100,13 +83,7 @@
 }
 
 
-#fontColorImpressum{
-    color: white;
-    
+#fontProgress{
+    color: black;
 }
-
-
-
-
-
 
