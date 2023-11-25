@@ -46,11 +46,11 @@ let inserNumber = prompt("Gib eine Zahl ein!");
 let inserNumber2 = prompt("Gib eine Zahl ein!"); 
 let inserNumber3 = prompt("Gib eine Zahl ein!"); 
 
-let highestNumber = inserNumber >inserNumber2 && inserNumber>inserNumber3
-
-
-console.log('Die die höchste nummer ist '+ highestNumber)
-
+inserNumber > inserNumber2 && inserNumber > inserNumber3
+  ? alert("biggest number you entered is:" + inserNumber)
+  : inserNumber2 > inserNumber3
+  ? alert("biggest number you entered is:" + inserNumber2)
+  : alert("biggest number you entered is:" + inserNumber3);
 
 
   
