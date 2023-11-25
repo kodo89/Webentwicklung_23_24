@@ -5,6 +5,36 @@
 // Wähle das <h1>-Element innerhalb des <div> mit der ID "main-container" aus und ändere seinen Textinhalt auf "DOM-Manipulationsübung abgeschlossen!".
 // Wähle das <button>-Element mit der ID "changeTextButton" aus und ändere seinen Textinhalt auf "Klick mich!„ und seine Hintergrundfarbe auf blau.
 
+/*
+document.getElementById("output").innerText = "Text geändert!";
+
+document.querySelector("#output").innerText = "Text geändert!";
+*/
+const node = document.getElementById("output");
+if(node){
+    node.innerText = "Text geändert!";
+}
+
+
+const div1 = document.getElementById("main-container");
+if(div1){
+    
+}
+
+/*
+document.getElementsByTagName("h1")[1].innerText = "DOM-Manipulationsübung abgeschlossen!";
+*/
+
+
+const button1 = document.getElementById("changeTextButton");
+if(button1){
+    button1.innerText = "Klick mich!";
+    button1.style.backgroundColor = 'aqua';
+}
+
+
+
+
 //Part 2
 
 // Aktualisiere deine index.js-Datei, um die Ereignisbehandlung einzubeziehen:
