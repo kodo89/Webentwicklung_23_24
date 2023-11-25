@@ -1,0 +1,115 @@
+/* general styles */
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+/* padded section */
+.pad-section {
+    padding: 50px 0;
+}
+
+.pad-section img {
+    width: 100%;
+    transform: scalex(-1);
+}
+
+/* vertical-centered text */
+.text-vcenter {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.text-vcenter h1 {
+    font-size: 4.5em;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+/* additional sections */
+#home {
+    background: url(./fotos/keyboard-5017973_1920.jpg) no-repeat center center fixed;
+    display: table;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#services {
+    background-color: #306d9f;
+    color: #ffffff;
+}
+
+#services .glyphicon {
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 60px;
+    height: 140px;
+    line-height: 140px;
+    text-align: center;
+    vertical-align: middle;
+    width: 140px;
+}
+
+.glyphicon-cloud{
+    background: url(fotos/dog-4480_128.gif);
+}
+.glyphicon-leaf{
+    background: url(fotos/cartoon-629_256.gif) center;
+}
+.glyphicon-phone-alt{
+    background: url(fotos/eleven-3112_128.gif) center ; 
+}
+
+.glyphicon-bullhorn{
+    background: url(fotos/summer-6877_256.gif);
+}
+
+#information {
+    background: url(https://images.unsplash.com/photo-1445964047600-cdbdb873673d?ixlib=rb-0.3.5&q=80&fm=jpg&w=1080&fit=max&s=4095108ad20979bc2f6522caa3c9eaab) no-repeat center center fixed;
+    display: table;
+    height: 800px;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#information .panel {
+    opacity: 0.85;
+}
+
+footer {
+    padding: 20px 0;
+}
+
+footer .glyphicon {
+    color: #333333;
+    font-size: 60px;
+}
+
+footer .glyphicon:hover {
+    color: #306d9f;
+}
+
+#footr {
+    background: url(https://images.unsplash.com/photo-1436367050586-7c605120bf73?ixlib=rb-0.3.5&q=80&fm=jpg&w=1080&fit=max&s=882c8bb11ec661aed0b80f2343067841) no-repeat center center fixed;
+    display: table;
+    height: 25%;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
