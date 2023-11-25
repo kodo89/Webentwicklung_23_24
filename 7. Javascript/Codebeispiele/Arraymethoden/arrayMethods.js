@@ -1,4 +1,4 @@
-// length: Gibt die Anzahl der Elemente in einem Array zurück.
+//length: Gibt die Anzahl der Elemente in einem Array zurück.
 // const array1 = [1, 2, 3, 4, 5];
 // console.log(array1.length);
 
@@ -51,10 +51,11 @@
 
 // // splice(index, Anzahl der Stellen die Entfernt werden, EInzufügende Stellen): Ändert den Inhalt eines Arrays durch Hinzufügen oder Entfernen von Elementen an einer bestimmten Position.
 // const array12 = [1, 2, 3, 4, 5];
-// array12.splice(2, 1, 6);
+// array12.splice(2, 1);
 // console.log(array12); 
 
 // // slice(): Gibt eine flache Kopie eines Teils eines Arrays zurück, ohne das Original-Array zu ändern.
 // const array13 = [1, 2, 3, 4, 5];
 // const slicedArray = array13.slice(1, 4);
 // console.log(slicedArray); // Ausgabe: [2, 3, 4]
+

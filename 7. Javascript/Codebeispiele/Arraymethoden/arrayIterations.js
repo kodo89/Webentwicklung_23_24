@@ -1,16 +1,16 @@
 // // Iteriert über jedes Element im Array und führt eine bereitgestellte Funktion aus.
 // const arrayForEach = [1, 2, 3, 4, 5];
-// arrayForEach.forEach((element,index, array) => console.log("An Stelle ", index , "steht", element, "des Arrays ", array));
+// arrayForEach.forEach((elxyz,index, array) => console.log("An Stelle ", index , "steht", elxyz, "des Arrays ", array));
 
 //selbes Beispiel nur mit einer externen Funktion
 // arrayForEach.forEach(myFunction)
-// function myFunction(element, index,array){
-//     console.log
+// function myFunction(elxyz,index,array){
+//     console.log("An Stelle ", index , "steht", elxyz, "des Arrays ", array)
 // }
 
 // // Erstellt ein neues Array, indem eine bereitgestellte Funktion auf jedes Element im Array angewendet wird.
 // const arrayMap = [1, 2, 3, 4, 5];
-// const newArrayMap = arrayMap.map(element => element * 2);
+// const newArrayMap = arrayMap.map((element) => element * 2);
 // console.log(newArrayMap);
 
 // // Überprüft, ob mindestens ein Element im Array eine bestimmte Bedingung erfüllt.
@@ -31,7 +31,7 @@
 // // Reduziert das Array auf einen einzelnen Wert durch Anwendung einer akkumulierten Funktion auf jedes Element.
 // // Als Parameter werden (total, value, index, array) mitgegeben
 // const arrayReduce = [1, 2, 3, 4, 5];
-// const resultReduce = arrayReduce.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+// const resultReduce = arrayReduce.reduce((sum, currentValue) => sum + currentValue, 0);
 // console.log(resultReduce);
 
 //Gibt den Index des ersten Vorkommens eines Elements im Array zurück.
