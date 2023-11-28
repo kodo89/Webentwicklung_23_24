@@ -1,3 +1,4 @@
+
 function whosPaying(names){
     let result = Math.floor(Math.random() * names.length);
     const selectedName = names[result];
