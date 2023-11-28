@@ -105,6 +105,77 @@ console.log(valueEqualToCard[51]);
 
 
 
+function setValueInput(valueInput){
+    return valueInput;
+}
+
+
+
+
+function returnRandomCardNumber(randomCard){
+    let randomCardNumber = Math.floor(Math.random()*randomCard.length);
+    let i = 0;
+    while(i<1){
+        if(randomCardNumber === randomCard[randomCardNumber]){
+            randomCardNumber = Math.floor(Math.random()*randomCard.length);
+        } else if(randomCardNumber !== randomCard[randomCardNumber]){
+            i++;
+        }
+    }
+    return randomCardNumber;
+}
+
+
+
+
+
+
+/*Gameloop*/
+
+
+
+let i = 0;
+let valuePlayer = 0;
+let valueBank = 0;
+while(i<1){
+
+
+
+    setValueInput;
+    returnRandomCardNumber;
+
+    /*Player gets 2 cards*/
+
+    valuePlayer += returnRandomCardNumber;
+    valuePlayer += returnRandomCardNumber;
+
+    if(valuePlayer > 21){
+        console.log("You loose. The bank wins")
+    }
+
+
+    valueBank += returnRandomCardNumber;
+    valueBank += returnRandomCardNumber;
+
+    if(valueBank > 21){
+        console.log("You win. The bank loose")
+        i++;
+    } else if(valueBank > 15 && valueBank < 22){
+        if(valueBank > valuePlayer){
+            console.log("The bank wins!");
+            i++;
+        } else if(valueBank < valuePlayer){
+            console.log("The player looses!");
+            i++;
+        }
+    }
+
+    
+
+
+
+
+}
 
 
 

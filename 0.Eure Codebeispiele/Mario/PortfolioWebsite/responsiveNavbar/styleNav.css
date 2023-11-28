@@ -1,0 +1,59 @@
+
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body{
+    height: 100%;
+}
+
+html{
+    height: 100%;
+}
+
+nav{
+    background-color: rgb(42,42,42);
+    min-height: 60px;
+}
+
+
+nav a{
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-decoration: none;
+    display: flex;
+}
+
+
+nav ul li{
+    list-style: none;
+}
+
+
+/* responsive */
+nav ul{
+    display: flex;
+}
+
+#icon{
+    display: none;
+}
+
+
+@media screen and (max-width: 600px){
+    .responsiveNav{
+        display: none;
+    }
+    #icon{
+        color: white;
+        padding: 20px;
+        font-size: 20px;
+        position: absolute;
+        right: 0px;
+        display: block;
+    }
+}
