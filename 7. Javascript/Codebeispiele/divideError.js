@@ -1,4 +1,3 @@
-
 function divideNumbers(a, b) {
     try {
         if (b === 0) {
@@ -13,9 +12,10 @@ function divideNumbers(a, b) {
     } catch (error) {
         console.error('Fehler aufgetreten:', error.message);
     }
-    console.log("Hallo")
 }
 
 // Beispielaufrufe
-  // Ungültige Division, sollte einen Fehler auslösen
-divideNumbers([1,2], 2);    // Gültige Division
+divideNumbers(10, 2);   // Gültige Division
+divideNumbers(5, 0);    // Ungültige Division, sollte einen Fehler auslösen
+divideNumbers(8, 4);    // Gültige Division
+>>>>>>> 5035c211a284295ab1ae80c6f48d55efd43f6298
