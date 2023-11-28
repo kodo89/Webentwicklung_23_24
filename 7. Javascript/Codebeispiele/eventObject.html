@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Object Example</title>
+</head>
+<body>
+
+    <button id="myButton">Click me!</button>
+
+    <script>
+        // Funktion zur Behandlung des Click-Ereignisses
+        function handleClick(event) {
+            // Informationen aus dem Event Object extrahieren
+            var eventType = event.type;
+            var targetElement = event.target;
+
+            // Konsolenausgabe der Informationen
+            console.log('Event Type:', eventType);
+            console.log('Target Element:', targetElement.tagName);
+        }
+
+        // Das HTML-Button-Element abrufen
+        var myButton = document.getElementById('myButton');
+
+        // Event Listener hinzufügen, der handleClick-Funktion aufruft
+        myButton.addEventListener('click', handleClick);
+        document.addEventListener("keypress",(event)=>console.log(event))
+
+    </script>
+
+</body>
+</html>
