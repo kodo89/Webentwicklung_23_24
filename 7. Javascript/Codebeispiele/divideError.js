@@ -18,4 +18,3 @@ function divideNumbers(a, b) {
 divideNumbers(10, 2);   // Gültige Division
 divideNumbers(5, 0);    // Ungültige Division, sollte einen Fehler auslösen
 divideNumbers(8, 4);    // Gültige Division
->>>>>>> 5035c211a284295ab1ae80c6f48d55efd43f6298
