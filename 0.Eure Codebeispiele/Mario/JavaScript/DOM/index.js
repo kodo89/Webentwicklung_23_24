@@ -52,8 +52,6 @@ if(otherButton){
 
 div1.appendChild(otherButton);
 
-let x = 0;
-
 
 function changeToDarkMode(){
     if(div1){

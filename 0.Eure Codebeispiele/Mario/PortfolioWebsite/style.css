@@ -1,110 +1,75 @@
 
-#divHead {
-    position: fixed;
-    width: 100%;
-    height: 100px;
-    border: 0px solid black;
+
+
+*{
     padding: 0px;
-    background-color: white;
-    z-index: 100;
-}
-
-#divIntro {
-    position: relative;
-    width: 100%;
-    top: 100px;
-    height: 600px;
-    border: 0px solid black;
-    padding: 0px;
-    
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
-#divAboutMe {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    border: 0px solid black;
-    padding: 0px;
-    background-color: rgb(56, 70, 30);
+body{
+    height: 100%;
+}
+
+html{
+    height: 100%;
+}
+
+.standard-container {
+    max-width: 1080px;
+    margin: 0 auto;
 }
 
 
 
-#divProjects {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    border: 0px solid black;
-    padding: 0px;
-    background-color: rgb(56, 70, 30);
+/*navbar styling*/
+nav{
+    background-color: rgb(42,42,42);
+    overflow: hidden;
+    min-height: 66px;
 }
 
+/*
 
-#divContact {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    border: 0px solid black;
-    padding-top: 20px;
-    background-color: white;
-    
-}
-
-#contactFormular{
-    background-color:aliceblue;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    
-}
-
-
-#divImpressum {
-    position: relative;
-    width: 100%;
-    height: 150px;
-    border: 0px solid black;
-    padding-top: 10px;
-    background-color: black;
-}
-
-
-
-.head{
-    text-align: center;
-}
-
-#submitButton{
-    text-align: end;
-    
-}
-
-
-#contactFormular div {
-    margin-top: 10px;
-}
-
-
-
-
-
-#divInnerImpressum{
-    border-bottom: 1px solid grey;
-    height: 70%;
-    padding: 20px;
-    width: 80%;
-    padding: 40px;
-    margin: auto; 
-}
-
-
-#fontColorImpressum{
+#icon.material-symbols-outlined{
+    font-size: 22px;
     color: white;
-    
+    position: absolute;
+    right: 0px;
+    padding: 22px;
+    display: flex;
+    border-bottom: 4px solid violet;
+}*/
+
+nav a{
+    color: white;
+    padding: 20px;
+    display: flex;
+    border-bottom: 4px solid violet;
+    text-decoration: none;
+    font-size: 22px;
 }
 
+
+.flex-nav{
+    display: flex;
+}
+
+nav div ul li{
+    list-style: none;
+}
+
+.flexOnMonitor ul{
+    display: flex;
+}
+
+
+
+
+@media screen and (max-width: 600px){
+
+}
 
 
 
