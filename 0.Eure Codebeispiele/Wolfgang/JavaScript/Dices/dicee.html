@@ -25,6 +25,28 @@
     <button id="newGameButton">New Game</button>
     </div>
 
+<Script>
 
+
+image_array = [
+                'dice1.png',
+                'dice2.png',
+                'dice3.png',
+                'dice4.png',
+                'dice5.png',
+              'dice6.png'];
+
+function get_random_image(){
+  const random_index = Math.floor(Math.random() * image_array.length);
+  const selected_image = image_array[random_index];
+  document.querySelector(".dice img").setAttribute("src",'images/'+selected_image);
+}
+
+
+let bColor = document.querySelector("#newGameButton");
+bColor.addEventListener('click', get_random_image);
+
+
+</Script>
   </body>
 </html>
