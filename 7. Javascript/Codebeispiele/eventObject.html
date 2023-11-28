@@ -11,21 +11,22 @@
 
     <script>
         // Funktion zur Behandlung des Click-Ereignisses
-        function handleClick(event) {
+        function handleClick(event,x) {
             // Informationen aus dem Event Object extrahieren
+            console.log("Was wurde geklickt?:", this)
             var eventType = event.type;
             var targetElement = event.target;
-
+            alert(x)
             // Konsolenausgabe der Informationen
-            console.log('Event Type:', eventType);
+            console.log('Event Type:', event);
             console.log('Target Element:', targetElement.tagName);
         }
 
         // Das HTML-Button-Element abrufen
         var myButton = document.getElementById('myButton');
-
+        let x = 3;
         // Event Listener hinzufügen, der handleClick-Funktion aufruft
-        myButton.addEventListener('click', handleClick);
+        myButton.addEventListener('click', (event) => handleClick(event,x));
         document.addEventListener("keypress",(event)=>console.log(event))
 
     </script>

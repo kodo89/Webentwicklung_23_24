@@ -27,13 +27,13 @@
         parentElement.addEventListener('click', function(event) {
             alert('Parent Element Clicked!');
             //this.style.backgroundColor="blue"
-            //console.log(this)
+            console.log(this)
         });
 
         childElement.addEventListener('click', function(event) {
             alert('Child Element Clicked!');
-            //this.style.backgroundColor="red"
-            //event.stopPropagation();
+            this.style.backgroundColor="red"
+            event.stopPropagation();
         });
     </script>
 
