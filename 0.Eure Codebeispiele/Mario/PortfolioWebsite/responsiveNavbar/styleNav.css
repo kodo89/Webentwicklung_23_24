@@ -57,3 +57,25 @@ nav ul{
         display: block;
     }
 }
+
+
+@media screen and (max-width: 500px){
+    .responsiveNav{
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav{
+        background-color: rgb(42,42,42);
+        min-height: 600px;
+    }
+
+    #icon{
+        color: white;
+        padding: 20px;
+        font-size: 20px;
+        position: absolute;
+        right: 0px;
+        display: block;
+    }
+}
