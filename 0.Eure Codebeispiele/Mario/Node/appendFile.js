@@ -1,7 +1,8 @@
 // Mach dich mit der Node Doku vertraut 
 // Erweitere die Datei um folgenden Text: „Hallo von [Dein Name]“
 
-var fs = require('fs');var data = "\nHallo von ajsdlkasjd!";
+var fs = require('fs');
+var data = "\nHallo von Mario";
 // append data to file
 fs.appendFile('message.txt',data, 'utf8',
 // callback function
