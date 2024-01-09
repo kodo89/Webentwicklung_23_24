@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio_neu</title>
+    <!--css style laden-->
+    <link rel="stylesheet" href="./style.css">
+    <!-- jQuery laden -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Google fonts laden -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+
+
+</head>
+<header>
+    <nav>
+        <div class="navInitials">Mario Brandl</div>
+        <div class="toggleNavBtn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="navListContainer">
+            <ul>
+                <!--
+                <li><a id="homeClick" href="#Welcome">Home</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Projects">Projects</a></li>
+                <li><a href="#Contact">Contact</a></li>
+                -->
+                <li><button class="navButton"><a id="homeClick" href="#Welcome">Home</a></button></li>
+                <li><button class="navButton"><a href="#About">About</a></button></li>
+                <li><button class="navButton"><a href="#Projects">Projects</a></button></li>
+                <li><button class="navButton"><a href="#Contact">Contact</a></button></li>
+                </ul>
+        </div>
+    </nav>
+    
+
+</header>
+<body>
+    <section id="Welcome">
+        <div id="standard-Container">
+            <div id="div-text-wel">
+                <h1 id="welcomeHeading" class="wel-content">Hey, I am Mario Brandl</h1>
+                <p id="welcomeTextFirstLine" class="wel-content">A software develpoper trying to create Frontend and Backend solutions.</p>
+                <p id="welcomeTextSecondLine" class="wel-content">Have fun looking at my portfolio!</p>
+            </div>
+            <div id="div-btn-wel"><button id="btn-Welcome">Projects</button></div>
+        </div>
+    </section>
+   
+
+
+    <section id="About">
+        <div id="standard-Container">
+            <div id="above-content">
+                <h1>ABOUT ME</h1>
+                <div id="row"></div>
+                <p>Here you will find more information about me, what I do, <br>and my current skills mostly in terms of programming and technology</p>
+            </div>
+
+            <div id="flex-about">
+                <div id="left-content">
+                    <p class="font_p">I have basic technical training in the field of mechatronics and then completed 
+                        academic training in the field of biomedical analysis. By completing "CODERS.BAY" I gained 
+                        profound knowledge of programming. This allowed me to learn from various areas of technology 
+                        as well as the life sciences. This is both theoretical and practical through professional experience.
+                    </p>
+                </div>
+                <div id="right-content">
+                    <div>
+                        <p class="font_p">Here are some technologies which i am using...</p>
+                    </div>
+                    <div id="technologies">
+                        <div>HTML</div>
+                        <div>CSS</div>
+                        <div>JS</div>
+                        <div>Angular</div>
+                        <div>React</div>
+                        <div>Python</div>
+                        <div>Java</div>
+                        <div>JavaFX</div>
+                        <div>C#</div>
+                        <div>SQL</div>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </section>
+
+
+
+
+    <section id="Projects">
+        <div id="standard-Container">
+            <div id="project-content">
+                <h1>PROJECTS</h1>
+                <div id="row"></div>
+                <p>Here you are some of my recent projects - Click them!</p>
+            </div>
+            <div id="flex-projects">
+                <div class="cards">
+                    <button id="btn-projects">
+                        <div id="card-style">
+                            <a href="./test.html">
+                                <h1>Portfolio</h1>
+                                <p>You already on it. For this i used HTML, CSS, JS and JQuery. I left out a framework like "Bootstrap" for greater learning effect!</p>
+                            </a>
+                        </div>
+                    </button>
+                </div>
+                <div class="cards">
+                    <button id="btn-projects">
+                        <div id="card-style">
+                            <a href="./test.html">
+                                <h1>The Collection Game</h1>
+                                <p>Also one of my first small projects by using Java.</p>
+                            </a>
+                        </div>
+                    </button>
+                </div>
+                <div class="cards">
+                    <button id="btn-projects">
+                        <div id="card-style">
+                            <a href="./test.html">
+                                <h1>TicTacToe</h1>
+                                <p>One of my first small projects by using Java.</p>
+                            </a>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="Contact">
+        <div id="standard-Container">
+            <div id="contact-content">
+                <h1>Contact</h1>
+                <div id="row"></div>
+                <p>Feel free to Contact me by submitting the form below and I will get back to you as soon as possible!</p>
+            </div>
+            <div id="outerbox">
+                <div id="innerframe">
+                    <form id="contactForm" action="#">
+         
+                        <div id="elements">
+                            <div id="inputName">NAME</div>
+                            <div>
+                                <input class="input name" type="text" name="test" placeholder="Enter your name" required>
+                            </div>
+                        </div>
+
+
+                        <div id="elements">
+                            <div id="inputName">EMAIL</div>
+                            <div>
+                                <input class="input email" type="email" placeholder="Enter your Email" required>
+                            </div>
+                        </div>
+
+
+                        <div id="elements">
+                            <div id="inputName">MESSAGE</div>
+                            <div>
+                                <textarea class="msg" required placeholder="Give me a message!"></textarea>
+                            </div>
+                        </div>
+
+                        <button class="input_btn" type="submit">SUBMIT</button>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </section>
+
+
+
+    <!-- Scroll up button ;) -->
+    <button id="goToTop" class="scrollUp"><i id="scrollItem" class="material-icons">arrow_upward</i></button>
+
+
+    <footer id="footer">
+        <div id="standard-Container">
+            <div id="footer-content">
+                <h1>Mario Brandl</h1>
+                <p class="footer-content-text">A software developer trying his best!</p>
+            </div>
+            <div id="underline"></div>
+            <div id="copyright">
+                <p>&copy; 2023. Made by <a href="./index.html">Mario Brandl</a> |  All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./main.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+</body>
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+</html>
