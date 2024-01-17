@@ -1,16 +1,18 @@
 const colors = ["green", "red", "yellow", "blue"];
 let isGameStarted = false;
+let waitForUserInput = false;
 
 let generatedOrder = [];
 let userOrder = [];
 
+const header = document.querySelector("h1");
 const buttons = document.querySelectorAll("button");
 
-document.addEventListener("keypress", (e) =>  {
-  if(!isGameStarted) {
-    startGame();
+document.addEventListener("keypress", (e) => {
+  if (!isGameStarted) {
+    startGameLoop();
   }
-})
+});
 
 for (const button in buttons) {
   if (Object.hasOwnProperty.call(buttons, button)) {
@@ -22,17 +24,33 @@ for (const button in buttons) {
 }
 
 function buttonClicked(btn) {
-  playSound(btn);
-  animateButton(btn);
+  if (isGameStarted) {
+    playSound(btn);
+    animateButton(btn);
+  }
+
+  if(waitForUserInput) {
+    userOrder.push(btn.id);
+    if(userOrder[userOrder.length] != generatedOrder[userOrder.length]) {
+      gameOver();
+    }
+    if(userOrder.length === generatedOrder.length) {
+      waitForUserInput = false;
+    }
+  }
 }
 
-function startGame() {
+function startGameLoop() {
   isGameStarted = true;
   addItem();
+  playOrder();
+  getUserOrder();
 }
 
 function gameOver() {
   isGameStarted = false;
+
+  header.innerText = "Game Over! Press a key to start.";
 }
 
 function playSound(btn) {
@@ -43,9 +61,9 @@ function playSound(btn) {
 
 function animateButton(btn) {
   console.log("animateButton " + btn.id);
-  btn.classList.add(".pressed");
+  btn.classList.add("pressed");
   setTimeout(() => {
-    btn.classList.remove(".pressed");
+    btn.classList.remove("pressed");
   }, 600);
 }
 
@@ -53,4 +71,20 @@ function addItem() {
   let random = Math.floor(Math.random() * buttons.length);
   generatedOrder.push(colors[random]);
   console.log(generatedOrder);
+  updateLevel();
+}
+
+function updateLevel() {
+  header.innerText = "Level " + generatedOrder.length;
+}
+
+function playOrder() {
+  buttonClicked(buttons[colors.indexOf(generatedOrder[0])]);
+  for (let i = 0; i < generatedOrder.length; i++) {
+    setTimeout(buttonClicked(buttons[colors.indexOf(generatedOrder[i])]), 800);
+  }
+}
+
+function getUserOrder() {
+  waitForUserInput = true;
 }
