@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/simon", (req, res) => {
-  res.sendFile(__dirname + "/7.1 Simon Game/index.html");
+  res.sendFile(__dirname + "../../../7.1 SimonGame/index.html");
 });
 
 app.post("/register", (req, res) => {
