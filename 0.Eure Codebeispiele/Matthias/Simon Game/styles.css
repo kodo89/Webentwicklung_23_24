@@ -1,7 +1,47 @@
 body {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #011F3F;
   font-family: 'Press Start 2P', cursive;
   font-size: 1rem;
   color:white
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 500px;
+  gap: 40px;
+  margin-top: 100px;
+}
+
+button {
+  width: 200px;
+  height: 200px;
+  border: 8px solid black;
+  border-radius: 20px;
+}
+
+#green {
+  background-color: green;
+}
+
+#red {
+  background-color: red;
+}
+
+#yellow {
+  background-color: yellow;
+}
+
+#blue {
+  background-color: blue;
+}
+
+.pressed {
+  box-shadow: 0 0 20px white;
+  transform: scale(1.2);
+  transition: all .5s;
 }

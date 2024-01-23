@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>ToDo Liste</title>
+</head>
+<body>
+    
+<h1>Today</h1>
+
+<div id="zuErledigen">
+    <button id="hinzufügenbutton" onclick="bestaetigen()">Hinzufügen</button>
+    <input type="text" name="textmanipulation" id="textmanipulation" onkeydown="checkEnter(event)" placeholder="Füge aufgabe hinzu">
+    
+
+</div>
+
+
+
+<script>
+
+
+function bestaetigen() {
+    var text = document.getElementById("textmanipulation").value;
+
+    var neuesElement = document.createElement("div");
+    neuesElement.classList.add("task");
+
+    var checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.addEventListener("change", function () {
+
+        if (checkbox.checked) {
+            textElement.style.textDecoration = "line-through";
+            textElement.style.color = "red"
+            deleteButton.style.display = "inline-block"; 
+        } else {
+            textElement.style.textDecoration = "none";
+            deleteButton.style.display = "none"; 
+        }
+    });
+
+    var textElement = document.createElement("p");
+    textElement.textContent = text;
+
+    var deleteButton = document.createElement("button");
+    deleteButton.classList.add("deleteButton");
+    deleteButton.textContent = "X";
+    deleteButton.style.display = "none"; 
+    deleteButton.addEventListener("click", function () {
+        neuesElement.remove(); 
+    });
+
+    neuesElement.appendChild(checkbox);
+    neuesElement.appendChild(textElement);
+    neuesElement.appendChild(deleteButton);
+
+    document.body.appendChild(neuesElement);
+
+    document.getElementById("textmanipulation").value = "";
+}
+
+
+
+</script>
+</body>
+</html>

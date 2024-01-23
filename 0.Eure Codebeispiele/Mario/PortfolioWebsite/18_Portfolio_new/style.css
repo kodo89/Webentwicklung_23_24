@@ -1,0 +1,611 @@
+html, body {
+    height: 100%;
+    min-width: 200px;
+    background-color: rgb(42,42,42);
+}
+
+
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+#standard-Container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+@media(max-width:750px){
+    #standard-Container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* Navbar */
+
+nav{
+    min-height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(42,42,42);
+    color: white;
+}
+
+
+
+.navInitials{
+    margin:30px;
+    font-size: 22px;
+    border-bottom: 4px solid rgb(42,42,42);
+}
+
+
+nav ul{
+    display: flex;
+}
+nav .navListContainer ul li{
+    height: 100%;
+    /*padding: 30px; --> wieder hinzufügen wenn ich wieder auf a Tags wechsle*/
+    list-style-type: none;
+    border-bottom: 4px solid rgb(42,42,42);
+}
+
+nav ul li:hover{
+    border-bottom: 4px solid rgb(111,0,255);
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+
+/* Button statt a Tags!!  --> bei rückgangig machen ganzes .navButton styling löschen*/
+.navButton{
+    padding: 30px;
+    background-color: rgb(42,42,42);
+    background: none;
+	color: inherit;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+
+
+.toggleNavBtn{
+    position: absolute;
+    top: 30px;
+    right: 25px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+}
+
+
+
+.bar{
+    height: 4px;
+    width: 100%;
+    background-color: white;
+    border-radius: 100px;
+}
+
+@media(max-width:750px){
+    .navListContainer {
+        display: none;
+        width: 100%;
+    }
+    .toggleNavBtn{
+        display: flex;
+    }
+    nav{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navListContainer ul{
+        flex-direction: column;
+        width: 100%;
+    }
+    .navListContainer li{
+        text-align: center;
+    }
+    nav ul li:hover{
+        border-bottom: 4px solid rgb(111,0,255);
+    }
+    .navListContainer.active{
+        display: flex;
+    }
+    
+}
+
+
+
+/* Welcome */
+#Welcome{
+    background-image: linear-gradient(rgba(0,0,0, 0.6), rgba(0,0,0, 0.6)), url(./images/imageBackground.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+h1.wel-content{
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+p.wel-content{
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    padding: 5px;
+}
+
+#btn-Welcome{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 30px;
+    background-color: rgb(111,0,255);
+    border-radius: 10px;
+    text-align: center;
+    border: none;
+    color: white;
+    margin-bottom: 150px;
+
+}
+
+#div-btn-wel{
+    padding-top: 60px;
+    text-align: center
+}
+
+#btn-Welcome:hover{
+    background-color: white;
+    color: rgb(111,0,255);
+}
+
+@media(max-width:750px){
+    #btn-Welcome{
+        margin-bottom: 70px;
+    }
+}
+
+
+
+/* About me */
+#row{
+    height: 10px;
+    width: 50px;
+    border-radius: 100px;
+    background-color: rgb(111,0,255);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+#About{
+    background-color: gray;
+    
+}
+
+#About p{
+    /*margin-top: 12px;
+    margin-left: 12px;*/
+    font-size: 22px;
+    color: white;
+}
+
+/*
+#above-content p{
+    margin-left: 12px;
+    margin-right: 12px;
+}*/
+
+#above-content h1{
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    padding-top: 50px;
+}
+
+#flex-about{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding-bottom: 50px;
+}
+
+#above-content{
+    width: 100%;
+    padding-bottom: 20px;
+    /*margin-left: 12px;*/
+    text-align: center;
+}
+
+.font_p{
+    color: white;
+    font-size: 22px;
+    line-height: 1.25;
+}
+
+#left-content{
+    width: 47%;
+    margin-right: 3%;
+}
+
+#right-content{
+    width: 47%;
+    margin-left: 3%;
+}
+
+
+#technologies {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 20px;
+  }
+
+#technologies div {
+    color: white;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    font-size: 22px;
+    background-color: rgb(42,42,42);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+@media(max-width:750px){
+    #flex-about{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+    }
+    #left-content{
+        width: auto;
+        margin: 12px;
+    }
+    
+    #right-content{
+        width: auto;
+        margin: 12px;
+    }
+}
+
+/*Projects*/
+#Projects{
+    background-image: url(./images/background_projects.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 100px;
+}
+
+#project-content h1{
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    padding-top: 50px;
+}
+
+#project-content{
+    width: 100%;
+    padding-bottom: 20px;
+    /*margin-left: 12px;*/
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+#Projects p{
+    /*margin-top: 12px;
+    margin-left: 12px;*/
+    font-size: 22px;
+    color: white;
+}
+
+
+.cards{
+    min-height: 250px;
+    max-width: 30%;
+    text-align: center;
+    color: white;
+}
+
+#btn-projects:hover{
+    border: 1px solid rgb(111,0,255);
+}
+
+#card-style{
+    padding: 15px;
+}
+
+#card-style h1{
+    padding-bottom: 15px;
+}
+
+.cards a{
+    color: white;
+    text-decoration: none;
+}
+
+#btn-projects p{
+    font-size: 22px;
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+#btn-projects{
+    background-color: rgb(42,42,42);
+    height: 100%;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+
+#flex-projects{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+@media(max-width:750px){
+    #flex-projects{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 0px;
+        align-items: center;
+        margin-bottom: 0px;
+    }
+
+    #btn-projects{
+        height: 200px;
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    .cards{
+        max-width: 100%;
+        min-width: 100%;
+        height: auto;
+        margin: 0px;
+    }
+    #Projects{
+        padding-bottom: 0px;
+    }
+
+}
+
+
+
+
+
+
+/*Contact*/
+#Contact{
+    background-image: linear-gradient(rgba(0,0,0, 0.6), rgba(0,0,0, 0.6)), url(./images/imageBackground.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#contact-content h1{
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    padding-top: 50px;
+}
+
+#contact-content{
+    width: 100%;
+    /*margin-left: 12px;*/
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+#Contact p{
+    /*margin-top: 12px;
+    margin-left: 12px;*/
+    font-size: 22px;
+    color: white;
+}
+
+#outerbox {
+    max-width: 70%;
+    margin: 0 auto;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+
+
+#innerframe{
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-color: gray;
+    border: 1px solid white;
+}
+
+.input{
+    width: 100%;
+    height: 40px;
+    border-radius: 7px;
+    font-size: 16px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid rgb(111,0,255)
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid rgb(111,0,255);
+    border-radius: 7px;
+    background-color: white;
+    font-size: 16px;
+    resize: none;
+}
+
+#inputName{
+    color: rgb(42,42,42);
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+.input_btn{
+    width: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 22px;
+    background-color: rgb(111,0,255);
+    border-radius: 10px;
+    text-align: center;
+    border: none;
+    color: white;
+}
+
+.input_btn:hover{
+    color: rgb(111,0,255);
+    background-color: white;
+}
+
+#elements{
+    margin-bottom: 40px;
+}
+
+@media(max-width: 600px){
+    #contact-content{
+        padding-bottom: 0px;
+    }
+    #outerbox {
+        max-width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .input_btn{
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+
+/* Footer */
+
+#footer{
+    background-color: rgb(42,42,42);
+    width: 100%;
+    position: absolute;
+    color: white;
+    min-height: 120px;
+}
+
+#footer a{
+    text-decoration: none;
+    color: white;
+}
+
+#copyright{
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 12px;
+}
+
+#footer h1{
+    padding-top: 22px;
+}
+
+.footer-content-text{
+    font-size: 22px;
+    margin-top: 12px;
+}
+
+#underline{
+    width: 100%;
+    height: 1px;
+    border-radius: 100px;
+    background-color: white;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+
+/* Scroll button */
+
+.scrollUp{
+    position: sticky;
+    bottom: 30px;
+    margin-right: 30px;
+    left: 100%;
+    padding: 5px;
+    background-color: rgb(111,0,255);
+    border-radius: 3px;
+    border-color: rgb(111,0,255);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .4s;
+}
+
+.scrollUp.active{
+    pointer-events: auto;
+    opacity: 1;
+}
+
+
+#scrollItem{
+    color: white;
+}
+
+.scrollUp:hover{
+    background-color: white;
+    border-color: white;
+
+}
+
+.scrollUp:hover > #scrollItem{
+    color: rgb(111,0,255);
+}
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+@media(max-width: 600px){
+    .scrollUp{
+        bottom: 20px;
+        margin-right: 20px;
+    }
+}
