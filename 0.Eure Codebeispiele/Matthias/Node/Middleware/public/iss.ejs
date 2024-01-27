@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ISS location</title>
+  </head>
+  <body>
+    <h3>ISS Position</h3>
+    <p style="margin-bottom: 50px;">
+      Latitude: <%= latitude %><br />
+      Longitude: <%= longitude %>
+    </p>
+    <iframe
+      width="50%%"
+      height="600"
+      frameborder="0"
+      scrolling="no"
+      id="gmap_canvas"
+      src="https://maps.google.com/maps?height=400&hl=en&q=<%= latitude %>,<%= longitude %>&t=&z=12&ie=UTF8&iwloc=B&output=embed"
+    ></iframe>
+  </body>
+</html>
