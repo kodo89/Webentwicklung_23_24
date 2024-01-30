@@ -1,6 +1,6 @@
 
 
-
+//database: excercises
 
 Create table jokes
 (
