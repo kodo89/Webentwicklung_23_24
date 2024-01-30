@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <button id = "btnISS"> sumbit  </button>
+    <div id = "isscor">
+
+    </div>
+
+    <script>
+        
+
+document.querySelector("#btnISS").addEventListener('click', changeBtn);
+
+function changeBtn(){
+
+  fetch('http://localhost:3000/issdata', {
+    method: 'GET',
+    headers:{
+        'content-type' : 'application/json'
+    }
+
+  }).then(response =>response.json()).then(data => {
+    document.getElementById("isscor").innerHTML = data.latitude + "   " + data.longitude;
+
+    })
+}
+    </script>
+</body>
+</html>
