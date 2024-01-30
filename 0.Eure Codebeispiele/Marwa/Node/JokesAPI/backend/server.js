@@ -1,18 +1,68 @@
 import express from "express";
 import bodyParser from "body-parser";
+import path from "path";
+import {dirname} from "path";
+import {fileURLToPath} from "url";
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("../frontend"));
+//gilt nur für meine static Ordner : sie sind nur für 35 Ordner
+
+app.get("/jokesfe", (req, res) => {
+  res.sendFile(path.join(__dirname,"../frontend/index.html"));
+});
+
+
 
 //1. GET a random joke
+app.get("/random", (req, res) => {
+  const num = Math.floor(Math.random() * 100);
+  res.send(jokes[num]);
+})
 
 //2. GET a specific joke
+// http://localhost:3000/jokes/1 => Postman
+app.get("/jokes/:id", (req, res) => {
+  let type = req.params.id;
+  console.log(type);
+  let result = jokes.filter((joke) => joke.id == type);
+ 
+  res.json(result);
+ 
+});
 
 //3. GET a jokes by filtering on the joke type
+//localhost:3000/filter?type=Wordplay => Postman
+app.get("/filter", (req,res) => {
+  console.log(req.query.types)
+  let types = req.query.types 
+  let newArray = jokes.filter((joke) => joke.jokeType === types)
+  res.json(newArray)
+})
+
+/*app.get("/filter", (req, res) => {
+  let type = req.query.jokeType;
+  console.log(type);
+  let result = jokes.filter((joke) => joke.jokeType === type);
+ 
+  res.json(result);
+ 
+});*/
 
 //4. POST a new joke
+app.post("/jokes", (req, res) => {
+  let newJoke = {
+    id: jokes.length +1,
+    jokeText: req.body.text,
+    jokeType: req.body.type
+  }
+  jokes.push[newJoke];
+  res.sendStatus(200)
+})
 
 //5. PUT a joke
 
