@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dad Jokes</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <div class="m-5">
+      <input
+        type="text"
+        name="jokeid"
+        class="input is-primary"
+        style="width: 100px"
+        id="input-jokeid"
+      />
+      <button class="button is-secondary" id="btn-specificjoke">
+        Get this joke
+      </button>
+      <button class="button is-primary ml-2" id="btn-randomjoke">
+        Random joke
+      </button>
+      <p class="mt-5">
+        ID: <span id="jokeid"></span><br />
+        Type: <span id="joketype"></span><br />
+        Joke: <span id="joketext"></span>
+      </p>
+    </div>
+
+    <script>
+      const inputJokeID = document.querySelector("#input-jokeid");
+      const btnSpecific = document.querySelector("#btn-specificjoke");
+      const btnRandom = document.querySelector("#btn-randomjoke");
+      const spanJokeID = document.querySelector("#jokeid");
+      const spanJokeType = document.querySelector("#joketype");
+      const spanJokeText = document.querySelector("#joketext");
+
+      btnSpecific.addEventListener("click", () => {
+        fetch("/jokes/" + (inputJokeID.value - 1))
+          .then((response) => response.json())
+          .then((data) => {
+            spanJokeID.innerText = data.id;
+            spanJokeType.innerText = data.jokeType;
+            spanJokeText.innerText = data.jokeText;
+          });
+      });
+
+      btnRandom.addEventListener("click", () => {
+        fetch("/random")
+          .then((response) => response.json())
+          .then((data) => {
+            spanJokeID.innerText = data.id;
+            spanJokeType.innerText = data.jokeType;
+            spanJokeText.innerText = data.jokeText;
+          });
+      });
+    </script>
+  </body>
+</html>
