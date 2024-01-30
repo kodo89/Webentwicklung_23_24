@@ -20,6 +20,8 @@ app.get("/jokesfe", (req, res) => {
 
 //1. GET a random joke
 app.get("/random", (req, res) => {
+  // const randomIndex = Math.floor(Math.random() * jokes.length);
+  // res.json(jokes[randomIndex]);
   const num = Math.floor(Math.random() * 100);
   res.send(jokes[num]);
 })
@@ -28,9 +30,8 @@ app.get("/random", (req, res) => {
 // http://localhost:3000/jokes/1 => Postman
 app.get("/jokes/:id", (req, res) => {
   let type = req.params.id;
-  console.log(type);
   let result = jokes.filter((joke) => joke.id == type);
- 
+
   res.json(result);
  
 });
@@ -59,18 +60,61 @@ app.post("/jokes", (req, res) => {
     id: jokes.length +1,
     jokeText: req.body.text,
     jokeType: req.body.type
-  }
-  jokes.push[newJoke];
+  };
+  jokes.push(newJoke);
+   //console.log(jokes.slice(-1));
   res.sendStatus(200)
 })
 
 //5. PUT a joke
+app.put("/jokes/:id", (req, res) => {
+  const id = req.params.id;
+  const idJoke = {
+    jokeText : req.body.jokeText,
+    jokeType : req.body.jokeType,
+  };
+  let index = jokes.filter((joke) => joke.id === id);
+  jokes[index] = idJoke;
+  res.json(idJoke);
+})
 
 //6. PATCH a joke
+app.patch("/jokes/:id" , (req, res) =>{
+  // const id = parseInt(req.params.id);
+  // const newJoke = jokes.find((joke) => joke.id === id);
+  // let newArray = {
+  //   id : id,
+  //   jokeText : req.body.text || newJoke.jokeText,
+  //   jokeType : req.body.type || newJoke.jokeType,
+  // };
+  // let index = jokes.findIndex((joke) => joke.id === id);
+  // jokes[index] = newArray;
+  // console.log(jokes[index]);
+  // res.json(newArray);
+})
 
 //7. DELETE Specific joke
-
+app.delete("jokes/:id" , (req, res) => {
+  // let id = parseInt(req.params.id);
+  // let index = jokes.findIndex((joke) => joke.id === id);
+  // if(index > -1){
+  //   jokes.splice(index, 1);
+  //   res.sendStatus(200);
+  // } else{
+  //   res.sendStatus(404);
+  //   res.json({ error : 'Joke with id: ${id} not found. No jokes were deleted'})
+  // }
+})
 //8. DELETE All jokes
+ app.delete("/jokes/all", (req, res) =>{
+//   let userKey = req.query.key;
+//   if(userKey === masterKey){
+//     jokes = [];
+//     res.sendStatus(200);
+//   }else{
+//     res.json({ error : 'You are not authorised to perfom this action'});
+//   };
+})
 
 app.listen(port, () => {
   console.log(`Successfully started server on port ${port}.`);
