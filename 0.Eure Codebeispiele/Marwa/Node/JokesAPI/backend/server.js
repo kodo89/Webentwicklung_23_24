@@ -1,68 +1,110 @@
 import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
+
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import axios from "axios";
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 
 const app = express();
 const port = 3000;
-const __dirname = dirname(fileURLToPath(import.meta.url));
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("../frontend"));
-
-app.get("/", (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, "../frontend/index.html"));
-});
 
 //1. GET a random joke
 app.get("/random", (req, res) => {
-  let random = Math.floor(Math.random() * jokes.length);
-  let currentJoke = jokes[random];
-  res.json({
-    id: currentJoke.id,
-    jokeType: currentJoke.jokeType,
-    jokeText: currentJoke.jokeText
-  });
+  let min = Math.ceil(0);
+  let max = Math.floor(101);
+  let index = Math.floor(Math.random() * (max - min) + min);
+  res.send(jokes[index]);
 });
 
 //2. GET a specific joke
+// http://localhost:3000/jokes/1
 app.get("/jokes/:id", (req, res) => {
-  let currentJoke = jokes[req.params.id];
-  res.json({
-    id: currentJoke.id,
-    jokeType: currentJoke.jokeType,
-    jokeText: currentJoke.jokeText
-  });
+  
+  let type = req.params.id;
+  console.log(type);
+  let result = jokes.filter((joke) => joke.id == type);
+
+  res.json(result);
+
 });
 
-//3. GET a joke by filtering on the joke type
-app.get("/joke", (req, res) => {
-  const category = req.query.category;
-  console.log(category);
-  let filteredJokes = jokes.filter((joke) => joke.jokeType === category);
-  console.log(filteredJokes);
-  res.status(200).send(filteredJokes);
+//3. GET a jokes by filtering on the joke type
+//localhost:3000/filter?type=Wordplay
+app.get("/filter", (req, res) => {
+  let type = req.query.jokeType;
+  console.log(type);
+  let result = jokes.filter((joke) => joke.jokeType === type);
+
+  res.json(result);
+
 });
 
 //4. POST a new joke
-app.post("/newjoke", (req, res) => {
-  console.log(req.body);
-  jokes.push({
-    id: jokes.length + 1,
+app.post("/postjoke", (req, res) => {
+  let jokesObject = {
+    id: jokes.length+1,
     jokeText: req.body.text,
-    jokeType: req.body.type,
-  });
+    jokeType: req.body.type
+  }
+  jokes.push(jokesObject);
   res.sendStatus(200);
 });
+
 //5. PUT a joke
+app.put("/jokes/:id", (req, res) => {
+  const id = req.params.id;
+  const idJoke = {
+    jokeText : req.body.jokeText,
+    jokeType : req.body.jokeType,
+  };
+  let index = jokes.filter((joke) => joke.id === id);
+  jokes[index] = idJoke;
+  res.json(idJoke);
+});
 
 //6. PATCH a joke
+app.patch("/jokes/:id" , (req, res) =>{
+  const id = parseInt(req.params.id);
+  const newJoke = jokes.find((joke) => joke.id === id);
+  let newArray = {
+    id : id,
+    jokeText : req.body.text || newJoke.jokeText,
+    jokeType : req.body.type || newJoke.jokeType,
+  };
+  let index = jokes.findIndex((joke) => joke.id === id);
+  jokes[index] = newArray;
+  console.log(jokes[index]);
+  res.json(newArray);
+});
 
 //7. DELETE Specific joke
+app.delete("jokes/:id" , (req, res) => {
+  let id = parseInt(req.params.id);
+  let index = jokes.findIndex((joke) => joke.id === id);
+  if(index > -1){
+    jokes.splice(index, 1);
+    res.sendStatus(200);
+  } else{
+    res.sendStatus(404);
+    res.json({ error : 'Joke with id: ${id} not found. No jokes were deleted'})
+  }
+});
 
 //8. DELETE All jokes
+app.delete("/jokes/all", (req, res) =>{
+  let userKey = req.query.key;
+  if(userKey === masterKey){
+    jokes = [];
+    res.sendStatus(200);
+  }else{
+    res.json({ error : 'You are not authorised to perfom this action'});
+  };
+});
+
 
 app.listen(port, () => {
   console.log(`Successfully started server on port ${port}.`);
