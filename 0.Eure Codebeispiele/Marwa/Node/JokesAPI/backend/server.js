@@ -1,69 +1,61 @@
 import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
-import {dirname} from "path";
-import {fileURLToPath} from "url";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import axios from "axios";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = 3000;
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("../frontend"));
-//gilt nur für meine static Ordner : sie sind nur für 35 Ordner
 
-app.get("/jokesfe", (req, res) => {
-  res.sendFile(path.join(__dirname,"../frontend/index.html"));
+app.get("/", (req, res) => {
+  res.status(200).sendFile(path.join(__dirname, "../frontend/index.html"));
 });
-
-
 
 //1. GET a random joke
 app.get("/random", (req, res) => {
-  const num = Math.floor(Math.random() * 100);
-  res.send(jokes[num]);
-})
-
-//2. GET a specific joke
-// http://localhost:3000/jokes/1 => Postman
-app.get("/jokes/:id", (req, res) => {
-  let type = req.params.id;
-  console.log(type);
-  let result = jokes.filter((joke) => joke.id == type);
- 
-  res.json(result);
- 
+  let random = Math.floor(Math.random() * jokes.length);
+  let currentJoke = jokes[random];
+  res.json({
+    id: currentJoke.id,
+    jokeType: currentJoke.jokeType,
+    jokeText: currentJoke.jokeText
+  });
 });
 
-//3. GET a jokes by filtering on the joke type
-//localhost:3000/filter?type=Wordplay => Postman
-app.get("/filter", (req,res) => {
-  console.log(req.query.types)
-  let types = req.query.types 
-  let newArray = jokes.filter((joke) => joke.jokeType === types)
-  res.json(newArray)
-})
+//2. GET a specific joke
+app.get("/jokes/:id", (req, res) => {
+  let currentJoke = jokes[req.params.id];
+  res.json({
+    id: currentJoke.id,
+    jokeType: currentJoke.jokeType,
+    jokeText: currentJoke.jokeText
+  });
+});
 
-/*app.get("/filter", (req, res) => {
-  let type = req.query.jokeType;
-  console.log(type);
-  let result = jokes.filter((joke) => joke.jokeType === type);
- 
-  res.json(result);
- 
-});*/
+//3. GET a joke by filtering on the joke type
+app.get("/joke", (req, res) => {
+  const category = req.query.category;
+  console.log(category);
+  let filteredJokes = jokes.filter((joke) => joke.jokeType === category);
+  console.log(filteredJokes);
+  res.status(200).send(filteredJokes);
+});
 
 //4. POST a new joke
-app.post("/jokes", (req, res) => {
-  let newJoke = {
-    id: jokes.length +1,
+app.post("/newjoke", (req, res) => {
+  console.log(req.body);
+  jokes.push({
+    id: jokes.length + 1,
     jokeText: req.body.text,
-    jokeType: req.body.type
-  }
-  jokes.push[newJoke];
-  res.sendStatus(200)
-})
-
+    jokeType: req.body.type,
+  });
+  res.sendStatus(200);
+});
 //5. PUT a joke
 
 //6. PATCH a joke
