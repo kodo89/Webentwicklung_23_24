@@ -53,6 +53,12 @@ app.get("/", (req, res) => {
 });
 
 
+app.get("/issfrontend", (req, res) => {
+  res.sendFile(__dirname + "/public/newISS.html");
+  /*res.send("<h1>Hello world 2</h1>"); */
+});
+
+
 
 
 app.get("/iss", (req, res) => {
@@ -70,6 +76,51 @@ app.get("/iss", (req, res) => {
     res.status(500).send("Fehler beim Aufruf der API");
   }
 });
+
+
+app.get("/issdata", (req, res) =>{
+  let yourUrl = "https://api.wheretheiss.at/v1/satellites/25544";
+  try {
+    axios.get(yourUrl).then((response) => {
+    /*res.status(200).send("get data: "+response.data);*/
+    console.log(response.data)
+      
+    
+    res.json( {
+      latitude: response.data.latitude,
+      longitude: response.data.longitude
+    });
+  
+    });
+  } catch (error){
+    res.status(500).send("Fehler beim Aufruf der API");
+  }
+
+
+})
+
+/*
+app.get("/issdata", (req, res) => {
+  const apiURL = "https://api.wheretheiss.at/v1/satellites/25544";
+  try {
+    axios.get(apiURL).then((response) => {
+      console.log("iss");
+      res.json({
+        latitude: response.data.latitude,
+        longitude: response.data.longitude
+      });
+    })
+  } catch(err) {
+    res.status(500).send("Error calling API.");
+  }
+})
+*/
+
+
+
+
+
+
 
 
 

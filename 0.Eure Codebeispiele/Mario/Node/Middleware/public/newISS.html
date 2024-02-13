@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <button id="btnISS">aktualisieren</button>
+    <p id="dataiss"></p>
+
+
+
+    <script>
+
+        document.getElementById("btnISS").addEventListener("click", changeData);
+        
+        
+        
+        
+        
+        
+        function changeData(){
+          
+        
+        
+            fetch('http://localhost:3000/issdata', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }).then(response => 
+                response.json()).then(data => {
+                console.log(data);
+                document.getElementById("dataiss").innerHTML = data.latitude + " " + data.longitude;
+        
+            })
+        
+            
+        
+        
+        
+        
+        
+        
+        
+          alert("sadkjdsa")
+        }
+        
+        </script>
+</body>
+</html>
