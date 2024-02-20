@@ -3,7 +3,17 @@
 }
 
 * {
-  color: turquoise;
+  color: white;
+}
+
+button {
+  padding: .5rem 1rem;
+  margin: .5rem;
+  font-size: 1rem;
+  background-color: #0b4a5c;
+  color: white;
+  border: 1px solid rgb(158, 158, 158);
+  border-radius: 5px;
 }
 
 .App-logo {

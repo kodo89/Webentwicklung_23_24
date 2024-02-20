@@ -2,11 +2,18 @@ import React from "react";
 import "./styles.css";
 import Header from "./Header";
 import Dice from "./Dice";
+import Button from "./Button";
+import { useState } from "react";
 
 export default function DiceGame() {
   //Hier kommt dein Javascript Code um die Zufallszahlen und den Gewinner zu bestimmen
-  const player1 = Math.floor(Math.random() * 6) + 1;
-  const player2 = Math.floor(Math.random() * 6) + 1;
+  const [player1, setPlayer1] = useState(Math.floor(Math.random() * 6) + 1);
+  const [player2, setPlayer2] = useState(Math.floor(Math.random() * 6) + 1);
+
+  function rollTheDice() {
+    setPlayer1(Math.floor(Math.random() * 6) + 1);
+    setPlayer2(Math.floor(Math.random() * 6) + 1);
+  }
 
   let winner;
 
@@ -37,6 +44,7 @@ export default function DiceGame() {
           <Dice val={player2} />
         </div>
       </div>
+      <Button onClick={rollTheDice}>Roll the dice</Button>
     </div>
   );
 }

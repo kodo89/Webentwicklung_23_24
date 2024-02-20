@@ -2,7 +2,6 @@ import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
 import mysql from "mysql";
-import cors from "cors";
 
 
 import { dirname } from "path";
@@ -13,7 +12,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = 3000;
 
-app.use(cors());
+
 
 
 //Database connection
