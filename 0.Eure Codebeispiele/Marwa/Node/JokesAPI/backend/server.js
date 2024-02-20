@@ -1,6 +1,8 @@
 import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
+import mysql from "mysql";
+import cors from "cors";
 
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -10,7 +12,104 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = 3000;
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
+
+
+//Database connection
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'excercises'
+});
+
+connection.connect((err) => {
+  if(err){
+    console.error("Fehler bei der Verbindung zur Datenbank:", err);
+  } else{
+    console.log("Erfolgreich mit der Datenbank verbunden");
+  }
+});
+
+
+
+app.use(bodyParser.json());
+
+//app.use(bodyParser.urlencoded({ extended: true });
+// gibt an wo meine statischen Elemente sind: dann kann man auch die JS files auslagern
+app.use(express.static('../frontend'));
+
+
+application.get("/endpoint", (req, res)=>{
+  const query = 'SELECT * FROM jokes';
+  connection.query(query, (error, results) => {
+    if(error){
+      res.status(500).send("Interner Serverfehler");
+    } else {
+      res.json(results);
+    }
+  });
+  //connection.end();
+});
+
+
+app.get("/alljokesfromdb", (req, res) => {
+  const query = 'Select * FROM jokes';
+  connection.query(query, (error, results) => {
+  if(error){
+    res.status(500).send("Interner Serverfehler");
+  } else {
+    res.json(results);
+  }
+});
+});
+
+
+app.post("/newjoke", (req, res) => {
+//connection.end();
+    var sql = req.body;
+    console.log(sql);
+    console.log('INSERT INTO jokes (id, jokeText, jokeType) VALUES ('+sql.id+', "'+sql.jokeText+'", "'+sql.jokeType+'");');
+    connection.query('INSERT INTO jokes (id, jokeText, jokeType) VALUES ('+sql.id+', "'+sql.jokeText+'", "'+sql.jokeType+'");', function (err, result) {
+      if (err) throw err;
+      console.log("1 record inserted");
+    });
+});
+
+
+app.put("/update", (req, res) => {
+  //connection.end();
+      var sql = req.body;
+      console.log('UPDATE jokes SET jokeText = "'+sql.jokeText+'", jokeType ="'+sql.jokeType+'" where id = '+sql.id+');');
+      connection.query('UPDATE jokes SET jokeText = "'+sql.jokeText+'", jokeType ="'+sql.jokeType+'" WHERE id = '+sql.id+';', function (err, result) {
+        if (err) throw err;
+        console.log("1 record updated");
+      });
+  });
+  
+
+  app.delete("/delete", (req, res) => {
+    //connection.end();
+    var sql = req.body;
+        connection.query('DELETE FROM jokes WHERE id = '+sql.id+';', function (err, result) {
+          if (err) throw err;
+          console.log("1 record deleted");
+        });
+    });
+
+process.on('SIGINT', () => {
+  connection.end();
+  process.exit();
+});
+
+
+app.get("/witzefrontend", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/index.html"));
+  /*res.send("<h1>Hello world 2</h1>"); */
+});
+
+
+
 
 //1. GET a random joke
 app.get("/random", (req, res) => {
