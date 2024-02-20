@@ -4,6 +4,7 @@ import path from "path";
 import mysql from "mysql";
 import cors from "cors";
 
+
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -23,6 +24,8 @@ const connection = mysql.createConnection({
   database: 'excercises'
 });
 
+
+
 connection.connect((err) => {
   if(err){
     console.error("Fehler bei der Verbindung zur Datenbank:", err);
@@ -33,6 +36,7 @@ connection.connect((err) => {
 
 
 
+
 app.use(bodyParser.json());
 
 //app.use(bodyParser.urlencoded({ extended: true });
@@ -40,8 +44,9 @@ app.use(bodyParser.json());
 app.use(express.static('../frontend'));
 
 
-application.get("/endpoint", (req, res)=>{
-  const query = 'SELECT * FROM jokes';
+
+app.get("/dbendpoint", (req, res) => {
+  const query  = 'Select * FROM jokes';
   connection.query(query, (error, results) => {
     if(error){
       res.status(500).send("Interner Serverfehler");
@@ -75,7 +80,6 @@ app.post("/newjoke", (req, res) => {
       console.log("1 record inserted");
     });
 });
-
 
 app.put("/update", (req, res) => {
   //connection.end();
@@ -111,6 +115,7 @@ app.get("/witzefrontend", (req, res) => {
 
 
 
+
 //1. GET a random joke
 app.get("/random", (req, res) => {
   let min = Math.ceil(0);
@@ -118,6 +123,10 @@ app.get("/random", (req, res) => {
   let index = Math.floor(Math.random() * (max - min) + min);
   res.send(jokes[index]);
 });
+
+
+
+
 
 //2. GET a specific joke
 // http://localhost:3000/jokes/1
@@ -130,6 +139,7 @@ app.get("/jokes/:id", (req, res) => {
   res.json(result);
 
 });
+
 
 //3. GET a jokes by filtering on the joke type
 //localhost:3000/filter?type=Wordplay
@@ -152,6 +162,7 @@ app.post("/postjoke", (req, res) => {
   jokes.push(jokesObject);
   res.sendStatus(200);
 });
+
 
 //5. PUT a joke
 app.put("/jokes/:id", (req, res) => {
