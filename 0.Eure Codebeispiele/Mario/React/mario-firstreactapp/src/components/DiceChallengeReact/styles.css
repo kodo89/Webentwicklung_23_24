@@ -41,6 +41,7 @@ footer {
 }
 
 .buttonDice{
+  margin-top: 20px;
   background-color: green;
   width: 220px;
   height: 100px;
