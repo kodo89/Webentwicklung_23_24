@@ -7,7 +7,14 @@
 .dice {
   text-align: center;
   display: inline-block;
+  width: 150px;
+  height: 150px;
+}
 
+.dice-container {
+  display: flex;
+  gap: 100px;
+  justify-content: center;
 }
 
 body {
