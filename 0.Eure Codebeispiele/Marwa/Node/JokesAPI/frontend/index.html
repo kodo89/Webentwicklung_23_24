@@ -6,27 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <button id = "btn"> ZUFALLS-WITZ</button>
+    
+    <button id="random">Zufallswitz</button>
+    <p id="id1"></p>
+    <p id="typ"></p>
+    <p id="witz"></p>
 
-    <p id = "name"></p>
-
-    <script>
-        
-
-document.querySelector("#btn").addEventListener('click', newJoke);
-
-function newJoke(){
-
-  fetch('http://localhost:3000/random',  {
-    method: 'GET',
-    headers:{
-        'content-type' : 'application/json'
-    }
-
-  }).then(response => response.json()).then(data => {
-    document.getElementById("name").innerHTML = data.jokeText + " " + data.jokeType;
-  })
-}
-    </script>
+    
+    <script src="index.js"></script>
 </body>
 </html>

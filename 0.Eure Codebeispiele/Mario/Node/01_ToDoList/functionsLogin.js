@@ -13,7 +13,7 @@ function userOrPasswordIsFalse(){
     } else{
         localStorage.setItem('activeUserIndex', getActiveUserID());
         window.alert("Login erfolgreich - Sie werden zur ToDo Liste weitergeleitet!")
-        window.location.href = 'http://127.0.0.1:5500/03_Projects/01_ToDoList/todoList.html';
+        window.location.href = './todoList.html';
     }
 }
 

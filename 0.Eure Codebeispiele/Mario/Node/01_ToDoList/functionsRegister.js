@@ -77,7 +77,7 @@ function getCurrentUserID(){
 
 function goToLogin(){
     window.alert("Registrierung erfolgreich - Sie werden zum Login weitergeleitet!");
-    window.location.href = 'http://127.0.0.1:5500/03_Projects/01_ToDoList/login.html';
+    window.location.href = './login.html';
 }
 
 
