@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import MyParentComponent from './components/MyParentComponent';
 import DiceGame from './components/DiceChallengeReact/DiceGame';
+import Counter from './components/Counter';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
 
       <DiceGame/>
 
+      {/* <Counter/> */}
 
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

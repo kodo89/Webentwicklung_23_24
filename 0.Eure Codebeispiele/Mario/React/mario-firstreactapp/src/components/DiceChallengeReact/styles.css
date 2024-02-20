@@ -39,3 +39,12 @@ footer {
   font-family: 'Indie Flower', cursive;
 
 }
+
+.buttonDice{
+  background-color: green;
+  width: 220px;
+  height: 100px;
+  border-radius: 20px;
+  font-size: 30px;
+  border-color: yellowgreen;
+}

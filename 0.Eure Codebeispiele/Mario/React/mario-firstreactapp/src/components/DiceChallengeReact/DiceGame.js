@@ -2,11 +2,15 @@ import React from "react";
 import "./styles.css";
 import Dice from "./Dice";
 import Header from "./Header";
+import NewGameButton from "./NewGameButton";
+import { useState } from "react";
 
 export default function DiceGame() {
 
-  var number1 = Math.floor(Math.random()*6+1);
-  var number2 = Math.floor(Math.random()*6+1);
+
+  const [number1, setNumber1] = useState(Math.floor(Math.random()*6+1))
+  const [number2, setNumber2] = useState(Math.floor(Math.random()*6+1))
+
 
   let varWinner = " ";
 
@@ -51,6 +55,10 @@ export default function DiceGame() {
       <Dice
         player = {2}
         num = {number2}
+      />
+      <NewGameButton
+        setNumber1 = {setNumber1}
+        setNumber2 = {setNumber2}
       />
       
       {/* Hier kommt dein JSX Code um die Komponenten mit ihren benötigten Props einzubinden */}
