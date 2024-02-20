@@ -37,3 +37,4 @@ function startGame(){
 }
 
 document.querySelector("#newGameButton").addEventListener('click', startGame)
+
