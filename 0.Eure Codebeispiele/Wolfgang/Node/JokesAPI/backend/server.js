@@ -1,12 +1,69 @@
 import express from "express";
 import bodyParser from "body-parser";
+import path from "path";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import mysql from "mysql";
 
 const app = express();
 const port = 3000;
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
-app.use(bodyParser.urlencoded({ extended: true }));
+const connection = mysql.createConnection({
+  host:'localhost',
+  user:'root',
+  password:'',
+  database:'exercise'
+});
+
+connection.connect((err) =>{
+
+  if(err) {
+      console.error('Fehler bei der verbindung zur Datenbank:', err);
+  }else {
+      console.log('Erfolgreich verbunden');
+  }
+});
+
+app.use(bodyParser.json());
+
+app.use(express.static("../frontend"));
+
+app.get("/", (req, res) => {
+  res.status(200).sendFile(path.join(__dirname, "../frontend/index.html"));
+});
 
 //1. GET a random joke
+/*app.get("/random", ( req, res) => {
+ 
+  var jokeLength = jokes.length;
+
+  var generateRndNr = Math.floor(Math.random() * jokeLength) + 1;
+
+  let joke = jokes;
+
+  res.send(joke);
+});*/
+
+app.get("/random", ( req, res) => {
+ 
+  const sqlQuery = 'SELECT * FROM jokes';
+
+  connection.query(sqlQuery, (error, results, fields) => {
+    if (error) {
+      console.error('Fehler bei der SQL-Abfrage:', error);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+
+    res.json(results);
+  });
+});
+
+  
+
+
+
 
 //2. GET a specific joke
 
