@@ -1,3 +1,30 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
 //Login Functions
 document.getElementById("loginButton").addEventListener("click", userOrPasswordIsFalse);
 
@@ -11,6 +38,10 @@ function userOrPasswordIsFalse(){
     } else if (getUserPasswordInput() != getObjectUserFromStorage().password[getIndexFromUserObject()]){
         window.alert("Passwort ist falsch!")
     } else{
+
+        // set Item into registration
+
+
         localStorage.setItem('activeUserIndex', getActiveUserID());
         window.alert("Login erfolgreich - Sie werden zur ToDo Liste weitergeleitet!")
         window.location.href = './todoList.html';
@@ -73,7 +104,7 @@ function getUserPasswordInput(){
     return document.getElementById("password").value;
 }
 
-
+*/
 
 
 

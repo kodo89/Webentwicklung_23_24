@@ -1,3 +1,35 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 // Login
 function User(user, password, userID){
     this.user = user;
@@ -90,3 +122,6 @@ function updateLocalStorage(){
 
 console.log(getObjectUserFromStorage().user)
 console.log(getObjectUserFromStorage().password)
+
+
+*/
