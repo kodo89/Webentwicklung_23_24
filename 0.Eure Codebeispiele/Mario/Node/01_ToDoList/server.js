@@ -14,8 +14,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Enable CORS for all routes
 app.use(cors());
-app.use(bodyParser.json());
+//app.use(bodyParser.json()); --> braucht man eigentlich nicht
 app.use(express.json());
+app.use(express.urlencoded());
 app.use(express.static('frontend'));
 
 var connection = mysql.createConnection({
@@ -27,18 +28,102 @@ var connection = mysql.createConnection({
 connection.connect();
 
 
+let UserID = 0;
 
-connection.query('SELECT * from object where ID = 1', function (error, results, fields) {
+
+app.get("/login", (req,res) => {
+  res.sendFile(`${__dirname}/frontend/login.html`)
+});
+
+
+
+
+
+
+app.get("/goToToDoList", (req, res) => {
+    // Abfragen ob Usereingabe korrekt ist
+    const query = 'SELECT * from objectuser;'
+
+    //console.log(req.query.username) --> Get übergibt einen query
+    //ein Post verlangt einen body
+
+    var userInput = req.query.username;
+    var userPassword = req.query.password;
+
+    console.log(userInput + " " + userPassword);
+
+    var userIsValid = false;
+
+    connection.query(query, (error, results) => {
+      if(error){
+        res.status(500).send("Interner Serverfehler");
+      } else {
+        console.log('The solution is: ', results);
+        console.log(results[0])
+
+        for (let i = 0; i < Object.keys(results).length; i++) {
+          if(results[i].Name == userInput && results[i].Password == userPassword){
+            userIsValid = true;
+            UserID = results[i].ID;
+            console.log(UserID+"test");
+          }
+          console.log(UserID);
+          
+        }
+      }
+      console.log(userIsValid);
+      if(userIsValid){
+          res.redirect("/getAllTodos");
+      }
+    });
+
+
+});
+
+
+
+app.get("/getAllTodos", (req, res) => {
+  const query  = 'SELECT * from object where IDuser = '+UserID+';'
+  //const id = UserID;
+  connection.query(query, (error, results) => {
+    if(error){
+      res.status(500).send("Interner Serverfehler");
+    } else {
+      res.json(results);
+      console.log('The solution is: ', results);
+    }
+  });
+  //connection.end();
+});
+
+
+
+
+
+
+
+
+
+//Credential
+
+// userId definieren hier!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//let UserID = 1; // ändert sich bei anmeldung, mit einem post oder so // soll am Anfang 0 sein!!!
+// funktion zum aktualisieren
+
+// res.redirect("/todos") --> Endpoint von get allTodos --> Endpoint wird erneut aufgerufen --> das schreib ich unten rein wenn ich zb. ein neues Todo in die DB hineingebe
+// location.reload --> im frontend geht auch
+
+connection.query('SELECT * from object where ID = 2', function (error, results, fields) {
     if (error) throw error;
     console.log('The solution is: ', results);
 });
 
 
 
-app.get("/refresh", (req, res) => {
-    const query  = 'SELECT * from object where ID = ?';
-    const id = 1;
-    connection.query(query, [id], (error, results) => {
+app.get("/getAllTodos", (req, res) => {
+    const query  = 'SELECT * from object where IDuser = '+UserID+';'
+    //const id = UserID;
+    connection.query(query, (error, results) => {
       if(error){
         res.status(500).send("Interner Serverfehler");
       } else {

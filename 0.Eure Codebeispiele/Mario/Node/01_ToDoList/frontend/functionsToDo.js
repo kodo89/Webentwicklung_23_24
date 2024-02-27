@@ -2,9 +2,65 @@
 
 var user = 1;
 
+/*
+Hinweise ToDo List:
+Body parser braucht man nicht zwingend... aver man kann schrieben: app.user (express.urlencoded()) usw. man kann aber auch beides nehmen
 
 
 
+*/
+
+
+document.addEventListener("DOMContentLoaded", getAllTodos());
+
+function getAllTodos(){
+    console.log("sucess");
+
+    fetch('http://localhost:5500/getAllTodos', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => response.json())
+    .then(objectItems => {
+
+        //console.log(objectItems[0].itemList);
+        console.log(Object.keys(objectItems).length)
+        let x = document.getElementById("list");
+        x.innerHTML = " ";
+        let decText = " ";
+        for(i = 0; i < Object.keys(objectItems).length; i++){
+        if(true){
+        //if(objectItems.userIndex[i] == activeUserIndex){
+            if(objectItems[i].itemListDone == "true"){
+                decText = "<s>"+objectItems[i].itemList+"</s>";
+            } else {
+                decText = objectItems[i].itemList;
+            }
+            x.innerHTML += "<li class='list-group-item' id='"+objectItems[i].ID+"'>"+
+            "<button class='btn btnGoogle' onclick='() => setItemDone(" + objectItems[i].ID + ", "+objectItems[i].ID+")'><i class='material-icons'>done</i></button>"+
+            "<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>"+
+            decText+"<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>"+
+            "<button class='btn btnGoogle' onclick='changeItem(" + i + ")'><i class='material-icons'>edit</i></button>"+
+            "&nbsp;&nbsp;"+
+            "<button class='btn btnGoogle' onclick='removeItem(" + i + ")'><i class='material-icons'>delete</i></button></li>";
+        }
+    }
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
 document.addEventListener("DOMContentLoaded", activatedFktn());
 
 function activatedFktn() {
@@ -19,7 +75,7 @@ function activatedFktn() {
     .then(response => response.json())
     .then(objectItems => {
 
-        console.log(objectItems[0].itemList);
+        //console.log(objectItems[0].itemList);
         console.log(Object.keys(objectItems).length)
         let x = document.getElementById("list");
         x.innerHTML = " ";
@@ -32,8 +88,8 @@ function activatedFktn() {
             } else {
                 decText = objectItems[i].itemList;
             }
-            x.innerHTML += "<li class='list-group-item' id='ItemId1'>"+
-            "<button class='btn btnGoogle' onclick='setItemDone(" + i + ")'><i class='material-icons'>done</i></button>"+
+            x.innerHTML += "<li class='list-group-item' id='"+objectItems[i].ID+"'>"+
+            "<button class='btn btnGoogle' onclick='() => setItemDone(" + objectItems[i].ID + ", "+objectItems[i].ID+")'><i class='material-icons'>done</i></button>"+
             "<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>"+
             decText+"<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>"+
             "<button class='btn btnGoogle' onclick='changeItem(" + i + ")'><i class='material-icons'>edit</i></button>"+
@@ -44,6 +100,7 @@ function activatedFktn() {
     })
 };
 
+*/
 
 function clearInput(){
     document.getElementById("inputToDo").value = "";
@@ -108,7 +165,11 @@ async function deleteTodoItem(itemId) {
     }
 }
 
-activatedFktn();
+
+
+
+
+//activatedFktn();
 
 //var objectItems = activatedFktn();
 
