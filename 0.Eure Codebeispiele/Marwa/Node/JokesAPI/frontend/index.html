@@ -6,27 +6,33 @@
     <title>Document</title>
 </head>
 <body>
-    <button id = "btn"> ZUFALLS-WITZ</button>
 
-    <p id = "name"></p>
 
-    <script>
-        
 
-document.querySelector("#btn").addEventListener('click', newJoke);
+    <button id="random">Zufallswitz</button>
+    <p id="id1"></p>
+    <p id="typ"></p>
+    <p id="witz"></p>
 
-function newJoke(){
 
-  fetch('http://localhost:3000/random',  {
-    method: 'GET',
-    headers:{
-        'content-type' : 'application/json'
-    }
+    <button id="getJoke">DB-Witz</button>
+    <p id="printJoke"></p>
 
-  }).then(response => response.json()).then(data => {
-    document.getElementById("name").innerHTML = data.jokeText + " " + data.jokeType;
-  })
-}
-    </script>
+    <button id="getAllJoke">All-DB-Witz</button>
+    <ul id="printAllJoke"></ul>
+
+
+    <button id="insertJoke">Insert into DB</button>
+
+    
+    <button id="updateJoke">Update by id</button>
+
+
+    <button id="deleteJoke">Delete by id</button>
+
+
+
+    <script src="./index.js"></script>
+
 </body>
 </html>

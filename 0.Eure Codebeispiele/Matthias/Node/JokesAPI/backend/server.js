@@ -1,20 +1,27 @@
 import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
+
+
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import axios from "axios";
 
+
 const app = express();
 const port = 3000;
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("../frontend"));
 
+
 app.get("/", (req, res) => {
   res.status(200).sendFile(path.join(__dirname, "../frontend/index.html"));
 });
+
 
 //1. GET a random joke
 app.get("/random", (req, res) => {
