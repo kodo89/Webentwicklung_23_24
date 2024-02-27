@@ -1,13 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
 import MyParentComponent from './components/MyParentComponent';
+import DiceGame from './components/DiceChallengeReact/DiceGame';
+import Counter from './components/Counter';
+import Dice from './components/DiceChallengeReact/Dice';
 
 function App() {
   return (
     <div className="App">
 
+<DiceGame/>
 
-      <MyParentComponent/>
+
+
+
+   {  
+   
+   
+   
+   /* <MyParentComponent/>
 
 
       <header className="App-header">
@@ -23,7 +34,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+  </header>*/}
     </div>
   );
 }
