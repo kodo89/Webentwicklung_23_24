@@ -1,4 +1,46 @@
 
+/*
+async function checkUserExists() {
+    const userName = document.getElementById('userNameRegistration').value;
+
+    // Send a request to check if the user exists
+    const response = await fetch(`/insertNewUserIntoDB?userName=${userName}`);
+
+
+
+
+    if (data.action === "showAlert") {
+        // Call a function to display the alert message
+        showAlert();
+    }
+}*/
+
+
+/*
+async function checkUserExists() {
+    const userName = document.getElementById('userNameRegistration').value;
+    const Password = document.getElementById('passwordRegistration').value;
+
+    // Send a request to check if the user exists
+    const response = await fetch(`/insertNewUserIntoDB?userName=${userName}?Password=${Password}`);
+    const data = await response.json();
+
+    console.log(data.action)
+
+    if (data.action === "redirect") {
+        console.log(data.action)
+        // Redirect the user to the specified destination
+        window.location.href = data.destination;
+    }
+}
+*/
+
+/*
+function showAlert() {
+    alert("message");
+}
+
+*/
 
 
 
@@ -11,7 +53,49 @@
 
 
 
+//document.getElementById("backToLoginButton").addEventListener("click", checkUserExists);
 
+
+
+
+/*
+function postRegisterDataIntoDB(){
+    var inputName = document.getElementById("inputToDo").value;
+    if (inputText == ""){
+        window.alert("Das ToDo Feld darf nicht leer sein!");
+    } else{
+        try {
+            fetch('http://localhost:3000/insertNewItemIntoDB', {
+              method: "POST", // or 'PUT'
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({itemList: inputText}),
+            });
+            location.reload();
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
+}*/
+
+/*
+async function checkUserExists() {
+    const userName = document.getElementById('userNameRegistration').value;
+    
+    // Send a request to check if the user exists
+    const response = await fetch(`/checkUserExists?userName=${userName}`);
+    const data = await response.json();
+
+    if (data.exists) {
+        document.getElementById('userExistsMessage').innerText = 'User already exists';
+    } else {
+        document.getElementById('userExistsMessage').innerText = '';
+    }
+}
+
+
+*/
 
 
 
