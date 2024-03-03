@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    
     <title>Login</title>
 </head>
 <body id="bodyLogin">
-    <form>
+    <form action="/validate" method="get">
         <h2>Login</h2>
         <label for="username">Benutzername:</label>
         <input type="text" id="username" name="username" required>
@@ -15,7 +16,10 @@
         <label for="password">Passwort:</label>
         <input type="password" id="password" name="password" required>
     
-        <button type="submit" onclick="login()">Anmelden</button>
+        <button type="submit" >Anmelden</button>
     </form>
+
+    
+    
 </body>
 </html>

@@ -17,41 +17,42 @@ h1 {
 }
 
 
-zuErledigen {
-    display:flex;
+#zuErledigen {
+    display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    
+
 }
 
 #hinzufügenbutton {
     box-shadow: 3px 4px 0px 0px #1564ad;
-	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
-	background-color:#79bbff;
-	border-radius:5px;
-	border:1px solid #337bc4;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:17px;
-	font-weight:bold;
-	padding:12px 44px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #528ecc;
+    background: linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+    background-color: #79bbff;
+    border-radius: 5px;
+    border: 1px solid #337bc4;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 12px 44px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #528ecc;
 
     margin: 10px;
 }
 
 #hinzufügenbutton:hover {
-    background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
-	background-color:#378de5;
+    background: linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+    background-color: #378de5;
 }
 
 #hinzufügenbutton:active {
-	position:relative;
-	top:1px;
+    position: relative;
+    top: 1px;
 }
+
 #textmanipulation {
     padding: 10px;
     font-size: 16px;
@@ -71,7 +72,7 @@ div.task {
 
 input[type="checkbox"] {
     margin-right: 10px;
-    
+
 }
 
 #textmanipulation:focus {
@@ -82,35 +83,47 @@ input[type="checkbox"] {
 .deleteButton {
 
     box-shadow: 3px 4px 0px 0px #1564ad;
-	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
-	background-color:#79bbff;
-	border-radius:5px;
-	border:1px solid #337bc4;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:17px;
-	font-weight:bold;
-	padding:3px 10px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #528ecc;
+    background: linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+    background-color: #79bbff;
+    border-radius: 5px;
+    border: 1px solid #337bc4;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 3px 10px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #528ecc;
 
     margin: 10px;
 }
+
 .deleteButton:hover {
-    background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
-	background-color:#378de5;
+    background: linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+    background-color: #378de5;
 }
-#bodyLogin{
+
+#bodyLogin {
     font-family: Arial, sans-serif;
-            background-color: rgb(51, 153, 255);
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+    background-color: rgb(51, 153, 255);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
+#bodyregistrieren{
+font-family: Arial, sans-serif;
+background-color: rgb(51, 153, 255);
+margin: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100vh;
+}
+
 form {
     background-color: aquamarine;
     padding: 20px;
@@ -132,7 +145,7 @@ input {
     padding: 8px;
     border-radius: 5px;
     border-color: 8782ad;
-    background-color:lightblue ;
+    background-color: lightblue;
     margin-bottom: 15px;
     box-sizing: border-box;
 }
