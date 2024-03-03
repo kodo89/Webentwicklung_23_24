@@ -4,10 +4,11 @@ h1{
 
 .container{
     max-width: 500px;
-    background-image: url(./images/backLogin.jpg);
+    background-color: blueviolet;
+    /*background-image: url(./images/backLogin.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: cover;*/
 }
 
 .btnGoogle{

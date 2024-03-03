@@ -1,7 +1,4 @@
 
-
-//var user = 1;
-
 /*
 Hinweise ToDo List:
 Body parser braucht man nicht zwingend... aver man kann schrieben: app.user (express.urlencoded()) usw. man kann aber auch beides nehmen
@@ -81,25 +78,6 @@ function postDataIntoDB(){
     }
 }
 
-
-
-/* asdjhksajd*/
-/*
-function setItemDone(itemId) {
-    fetch(`/updateToDoToDone/${itemId}`, {
-      method: 'UPDATE'
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      console.log('Todo was set to done successfully');
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-    location.reload();
-}*/
 
 function setItemDone(itemId, isDone) {
   console.log("set Item done test")
@@ -183,57 +161,6 @@ function deleteAllItemsFromDB() {
 }
 
 
-/*
-
-const removeItem = async (id) => {
-    try {
-      const response = await fetch(`/specificToDo/${id}`, {
-        method: 'DELETE'
-      });
-  
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-  
-      console.log('Todo deleted successfully');
-  
-      // Reload the page after successful deletion
-      location.reload();
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
-  
-*/
-
-/*
-
-async function removeItem(itemId) {
-    try {
-      const response = await fetch(`/specificToDo/${itemId}`, {
-        method: 'DELETE'
-      });
-      
-      if (!response.ok) {
-        throw new Error('Failed to delete todo item');
-      }
-
-      // Remove the deleted item from the UI
-      const listItem = document.getElementById(`todo-item-${itemId}`);
-      listItem.remove();
-    } catch (error) {
-      console.error('Error:', error);
-    }
-}
-
-
-*/
-
-
-
-
-
-
 function getAllTodos(){
     console.log("sucess");
 
@@ -259,116 +186,9 @@ function getAllTodos(){
         console.log(objectItems[0]);
 
         console.log("test");
-
-        /*
-        //console.log(objectItems[0].itemList);
-        console.log(Object.keys(objectItems).length)
-        let x = document.getElementById("list");
-        x.innerHTML = " ";
-        let decText = " ";
-        for(i = 0; i < Object.keys(objectItems).length; i++){
-        if(true){
-        //if(objectItems.userIndex[i] == activeUserIndex){
-            if(objectItems[i].itemListDone == "true"){
-                decText = "<s>"+objectItems[i].itemList+"</s>";
-            } else {
-                decText = objectItems[i].itemList;
-            }
-            x.innerHTML += "<li class='list-group-item' id='"+objectItems[i].ID+"'>"+
-            "<button class='btn btnGoogle' onclick='() => setItemDone(" + objectItems[i].ID + ", "+objectItems[i].ID+")'><i class='material-icons'>done</i></button>"+
-            "<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>"+
-            decText+"<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>"+
-            "<button class='btn btnGoogle' onclick='changeItem(" + i + ")'><i class='material-icons'>edit</i></button>"+
-            "&nbsp;&nbsp;"+
-            "<button class='btn btnGoogle' onclick='removeItem(" + i + ")'><i class='material-icons'>delete</i></button></li>";
-
-            
-        }
-    }*/
     })
 }
 
-
-
-
-
-
-
-
-
-
-
-/*
-document.addEventListener("DOMContentLoaded", activatedFktn());
-
-function activatedFktn() {
-    console.log("sucess");
-    var activeUserIndex = user;
-    fetch('http://localhost:5500/refresh', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    })
-    .then(response => response.json())
-    .then(objectItems => {
-
-        //console.log(objectItems[0].itemList);
-        console.log(Object.keys(objectItems).length)
-        let x = document.getElementById("list");
-        x.innerHTML = " ";
-        let decText = " ";
-        for(i = 0; i < Object.keys(objectItems).length; i++){
-        if(true){
-        //if(objectItems.userIndex[i] == activeUserIndex){
-            if(objectItems[i].itemListDone == "true"){
-                decText = "<s>"+objectItems[i].itemList+"</s>";
-            } else {
-                decText = objectItems[i].itemList;
-            }
-            x.innerHTML += "<li class='list-group-item' id='"+objectItems[i].ID+"'>"+
-            "<button class='btn btnGoogle' onclick='() => setItemDone(" + objectItems[i].ID + ", "+objectItems[i].ID+")'><i class='material-icons'>done</i></button>"+
-            "<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>"+
-            decText+"<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>"+
-            "<button class='btn btnGoogle' onclick='changeItem(" + i + ")'><i class='material-icons'>edit</i></button>"+
-            "&nbsp;&nbsp;"+
-            "<button class='btn btnGoogle' onclick='removeItem(" + i + ")'><i class='material-icons'>delete</i></button></li>";
-        }
-    }
-    })
-};
-
-*/
-
-/*
-function clearInput(){
-    document.getElementById("inputToDo").value = "";
-}
-
-
-
-document.getElementById("newInput").addEventListener("click", postNewInput);
-
-async function postNewInput() {
-    var inputText = document.getElementById("inputToDo").value;
-    if (inputText == ""){
-        window.alert("Das ToDo Feld darf nicht leer sein!");
-    } else{
-        try {
-            await fetch('http://localhost:5500/newItem', {
-              method: "POST", // or 'PUT'
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ID: 1, itemList: inputText, itemListDone: 'false'}),
-            });
-        } catch (error) {
-            console.error("Error:", error);
-        }
-    }
-
-}
-*/
 
 document.getElementById("deleteAll").addEventListener("click", deleteAllItems);
 

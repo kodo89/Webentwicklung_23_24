@@ -47,20 +47,6 @@ app.get("/registration", (req,res) => {
 });
 
 
-/*
-app.post("/insertNewUserIntoDB", (req, res) => {
-
-  const query = 'INSERT INTO objectuser (Name, Password) VALUES ('+req.query.userName+', "'+req.query.Password+'");'
-
-  connection.query(query, function (error, result) {
-    if (error){
-      res.status(500).send("Interner Serverfehler");
-    } else{
-      console.log("1 record inserted");
-    }
-});
-});
-*/
 
 app.get("/insertNewUserIntoDB", (req, res) => {
   const userName = req.query.userName;
@@ -98,12 +84,6 @@ app.get("/insertNewUserIntoDB", (req, res) => {
 });
 
 
-
-
-
-
-
-
 app.get("/goToToDoList", (req, res) => {
     // Abfragen ob Usereingabe korrekt ist
     var userInput = req.query.username;
@@ -135,47 +115,6 @@ app.get("/goToToDoList", (req, res) => {
           }
       }
     });
-
-
-
-
-
-/*
-    try{
-      connection.query(query, (error, results) => {
-        if(error){
-          res.status(500).send("Interner Serverfehler");
-        } else {
-          console.log('The solution is: ', results);
-          console.log(results[0].ID)
-          console.log("Result length: "+results.length)
-    
-    
-          if(results.length !== 1){
-            console.log("User oder Password ist falsch! Bitte versuchen Sie es erneut oder registrieren Sie sich!")
-            //res.redirect("/login");
-          } else{
-            UserID = results[0].ID;
-            res.redirect("/getAllTodos");
-          }
-        } 
-      });
-    } catch (error){
-      console.log("Upsss")
-      res.redirect("/login");
-    }
-
-*/
-
-
-
-
-
-
-
-
-
-
 });
 
 
@@ -281,10 +220,9 @@ app.delete('/specificToDo/:id', (req, res) => {
 });
 
 
-
 app.delete('/deleteAllItems', (req, res) => {
 
-  const query = `DELETE FROM object;`
+  const query = `DELETE FROM object where IDuser = ${UserID};`
 
   connection.query(query, function (err, result) {
     if (err){
