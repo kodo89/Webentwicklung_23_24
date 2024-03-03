@@ -6,7 +6,7 @@ import bodyParser from "body-parser";
 import path from "path";
 
 const app = express();
-const port = 5500;
+const port = 3000;
 
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -16,7 +16,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 app.use(cors());
 //app.use(bodyParser.json()); --> braucht man eigentlich nicht
 app.use(express.json());
-app.use(express.urlencoded());
+//app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('frontend'));
 
 var connection = mysql.createConnection({
@@ -27,7 +28,7 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
-
+// active User:
 let UserID = 0;
 
 
@@ -36,73 +37,163 @@ app.get("/login", (req,res) => {
 });
 
 
+app.get("/getAllTodos", (req,res) => {
+  res.sendFile(`${__dirname}/frontend/todoList.html`)
+});
+
+
+app.get("/registration", (req,res) => {
+  res.sendFile(`${__dirname}/frontend/resgistration.html`)
+});
+
+
+/*
+app.post("/insertNewUserIntoDB", (req, res) => {
+
+  const query = 'INSERT INTO objectuser (Name, Password) VALUES ('+req.query.userName+', "'+req.query.Password+'");'
+
+  connection.query(query, function (error, result) {
+    if (error){
+      res.status(500).send("Interner Serverfehler");
+    } else{
+      console.log("1 record inserted");
+    }
+});
+});
+*/
+
+app.get("/insertNewUserIntoDB", (req, res) => {
+  const userName = req.query.userName;
+  const password = req.query.password;
+
+  console.log(userName)
+  console.log(password)
+  // Check if the user already exists
+  const checkQuery = `SELECT * FROM objectuser WHERE Name = '${userName}'`;
+  connection.query(checkQuery, (error, results) => {
+      if (error) {
+          res.status(500).send("Internal Server Error");
+      } else {
+          if (results.length > 0) {
+              // User already exists
+              console.log("User already exists");
+              //res.status(200).json({ action: "redirect", destination: "/registration" });
+              //res.status(200).json({ alert: "User already exists" });
+              res.redirect("/registration");
+              //res.status(409).send("User already exists");
+          } else {
+              // Insert the new user into the database
+              const insertQuery = `INSERT INTO objectuser (Name, Password) VALUES ('${userName}', '${password}')`;
+              connection.query(insertQuery, (error, result) => {
+                  if (error) {
+                      res.status(500).send("Internal Server Error");
+                  } else {
+                      console.log("1 record inserted");
+                      res.redirect("/login");
+                  }
+              });
+          }
+      }
+  });
+});
+
+
+
+
 
 
 
 
 app.get("/goToToDoList", (req, res) => {
     // Abfragen ob Usereingabe korrekt ist
-    const query = 'SELECT * from objectuser;'
+    var userInput = req.query.username;
+    var userPassword = req.query.password;
+
+    const query = `SELECT * from objectuser where Name = '${userInput}' AND Password = '${userPassword}';`
 
     //console.log(req.query.username) --> Get übergibt einen query
     //ein Post verlangt einen body
 
-    var userInput = req.query.username;
-    var userPassword = req.query.password;
+    console.log("User: "+ userInput + ", Password: " + userPassword);
 
-    console.log(userInput + " " + userPassword);
-
-    var userIsValid = false;
 
     connection.query(query, (error, results) => {
       if(error){
         res.status(500).send("Interner Serverfehler");
       } else {
-        console.log('The solution is: ', results);
-        console.log(results[0])
-
-        for (let i = 0; i < Object.keys(results).length; i++) {
-          if(results[i].Name == userInput && results[i].Password == userPassword){
-            userIsValid = true;
-            UserID = results[i].ID;
-            console.log(UserID+"test");
+          console.log('The solution is: ', results);
+          try{
+            console.log("Result length: " + results.length)
+            UserID = results[0].ID;
+            if(results.length == 1){
+              res.redirect("/getAllTodos");
+            }
+          } catch (error){
+            console.log("User or Password is not valid!")
+            //alert("User or Password is not valid! Try again or register!")
+            res.redirect("/registration");
           }
-          console.log(UserID);
-          
-        }
-      }
-      console.log(userIsValid);
-      if(userIsValid){
-          res.redirect("/getAllTodos");
       }
     });
+
+
+
+
+
+/*
+    try{
+      connection.query(query, (error, results) => {
+        if(error){
+          res.status(500).send("Interner Serverfehler");
+        } else {
+          console.log('The solution is: ', results);
+          console.log(results[0].ID)
+          console.log("Result length: "+results.length)
+    
+    
+          if(results.length !== 1){
+            console.log("User oder Password ist falsch! Bitte versuchen Sie es erneut oder registrieren Sie sich!")
+            //res.redirect("/login");
+          } else{
+            UserID = results[0].ID;
+            res.redirect("/getAllTodos");
+          }
+        } 
+      });
+    } catch (error){
+      console.log("Upsss")
+      res.redirect("/login");
+    }
+
+*/
+
+
+
+
+
+
+
+
 
 
 });
 
 
+app.get("/loadDataFromDB", (req, res) => {
+  const query  = `SELECT * FROM object WHERE IDuser = ${UserID};`
+  //const query  = `SELECT * FROM object WHERE IDuser = 1;`
 
-app.get("/getAllTodos", (req, res) => {
-  const query  = 'SELECT * from object where IDuser = '+UserID+';'
   //const id = UserID;
   connection.query(query, (error, results) => {
     if(error){
       res.status(500).send("Interner Serverfehler");
     } else {
       res.json(results);
-      console.log('The solution is: ', results);
+      //console.log('The solution2 is: ', results);
     }
   });
   //connection.end();
 });
-
-
-
-
-
-
-
-
 
 //Credential
 
@@ -113,70 +204,96 @@ app.get("/getAllTodos", (req, res) => {
 // res.redirect("/todos") --> Endpoint von get allTodos --> Endpoint wird erneut aufgerufen --> das schreib ich unten rein wenn ich zb. ein neues Todo in die DB hineingebe
 // location.reload --> im frontend geht auch
 
-connection.query('SELECT * from object where ID = 2', function (error, results, fields) {
-    if (error) throw error;
-    console.log('The solution is: ', results);
-});
-
-
-
-app.get("/getAllTodos", (req, res) => {
-    const query  = 'SELECT * from object where IDuser = '+UserID+';'
-    //const id = UserID;
-    connection.query(query, (error, results) => {
-      if(error){
-        res.status(500).send("Interner Serverfehler");
-      } else {
-        res.json(results);
-        console.log('The solution is: ', results);
-      }
-    });
-    //connection.end();
-});
-
-
-
   
-app.post("/newItem", (req, res) => {
-    //connection.end();
+app.post("/insertNewItemIntoDB", (req, res) => {
         var sql = req.body;
-        console.log(sql);
-        console.log('INSERT INTO object (id, jokeText, jokeType) VALUES ('+sql.ID+', "'+sql.itemList+'", "'+sql.itemListDone+'");');
-        connection.query('INSERT INTO object (ID, itemList, itemListDone) VALUES ('+sql.ID+', "'+sql.itemList+'", "'+sql.itemListDone+'");', function (err, result) {
-          if (err) throw err;
-          console.log("1 record inserted");
-    });
-});
-  
+        //console.log(sql.itemList);
+        const query = 'INSERT INTO object (IDuser, itemList, itemListDone) VALUES ('+UserID+', "'+sql.itemList+'", "false");'
 
-
-app.delete("/deleteAllItems", (req, res) => {
-    //connection.end();
-    var sql = req.body;
-    connection.query('DELETE FROM object WHERE ID = '+sql.ID+';', function (err, result) {
-        if (err) throw err;
-        console.log("all items are deleted");
+        connection.query(query, function (err, result) {
+          if (err){
+            throw err
+          } else{
+            console.log("1 record inserted");
+          }
     });
 });
 
 
-/*
-// Route to delete a specific todo item
-app.delete('/specificToDo/:id', (req, res) => {
-    const ID = req.params.id;
-    pool.query('DELETE FROM todos WHERE id = ?', [ID], (error, results) => {
-      if (error) {
-        console.error('Error executing MySQL query:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
-        return;
-      }
-      res.sendStatus(204); // No content (success)
-    });
+app.patch('/updateToDoToDone/:id/:isDone', (req, res) => {
+  const ID = req.params.id;
+  const isDone = req.params.isDone;
+
+  console.log("************** "+ID)
+  console.log("************** "+isDone)
+
+  var query = "";
+  if(isDone == "false"){
+    query = `UPDATE object SET ItemlistDone = 'true' WHERE ID = ${ID};`
+  } else{
+    query = `UPDATE object SET ItemlistDone = 'false' WHERE ID = ${ID};`
+  }
+
+  connection.query(query, function (err, result) {
+    if (err){
+      throw err
+    } else{
+      console.log("1 record was updated");
+    }
   });
-*/
+});
 
 
 
+app.patch('/changeItemInTheDB/:id', (req, res) => {
+  const ID = req.params.id;
+  var sql = req.body.itemList;
+
+  console.log("************** "+sql)
+  console.log("************** "+ID)
+
+  var query = `UPDATE object SET ItemlistDone = 'false', itemList = "${sql}" WHERE ID = ${ID};`
+
+
+  connection.query(query, function (err, result) {
+    if (err){
+      throw err
+    } else{
+      console.log("1 record was updated");
+    }
+  });
+});
+
+
+app.delete('/specificToDo/:id', (req, res) => {
+  const ID = req.params.id;
+  console.log(ID);
+
+  const query = `DELETE FROM object WHERE ID = ${ID};`
+
+  connection.query(query, function (err, result) {
+    if (err){
+      throw err
+    } else{
+      console.log("1 record was deleted");
+    }
+  });
+});
+
+
+
+app.delete('/deleteAllItems', (req, res) => {
+
+  const query = `DELETE FROM object;`
+
+  connection.query(query, function (err, result) {
+    if (err){
+      throw err
+    } else{
+      console.log("all records are deleted");
+    }
+  });
+});
 
 
 process.on('SIGINT', () => {

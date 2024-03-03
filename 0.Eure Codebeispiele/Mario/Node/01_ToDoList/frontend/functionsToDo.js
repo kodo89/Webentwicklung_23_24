@@ -1,22 +1,250 @@
 
 
-var user = 1;
+//var user = 1;
 
 /*
 Hinweise ToDo List:
 Body parser braucht man nicht zwingend... aver man kann schrieben: app.user (express.urlencoded()) usw. man kann aber auch beides nehmen
+*/
 
+
+document.addEventListener("DOMContentLoaded", fetchDataFromDB);
+
+function fetchDataFromDB() {
+    console.log("testing");
+
+    fetch('http://localhost:3000/loadDataFromDB', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+        console.log("Länge: "+ data.length)
+
+        //console.log(data[0].ID)
+        //console.log(data[0].itemList)
+        //console.log(data[0].ItemlistDone)
+
+        let x = document.getElementById("list");
+        x.innerHTML = " ";
+        let decText = " ";
+        for(i = 0; i < data.length; i++){
+            console.log("reload")
+            if(data[i].ItemlistDone == "true"){
+                decText = "<s>"+data[i].itemList+"</s>";
+            } else {
+                decText = data[i].itemList;
+            }
+            x.innerHTML += "<li class='list-group-item' id='"+data[i].ID+"'>"+
+            "<button class='btn btnGoogle' onclick='setItemDone(" + data[i].ID + "," + data[i].ItemlistDone + ")'><i class='material-icons'>done</i></button>"+
+            "<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>"+
+            decText+"<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>"+
+            "<button class='btn btnGoogle' onclick='changeItem(" + data[i].ID + ")'><i class='material-icons'>edit</i></button>"+
+            "&nbsp;&nbsp;"+
+            "<button class='btn btnGoogle' onclick='removeItemFromDB(" + data[i].ID + ")'><i class='material-icons'>delete</i></button></li>";
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
+}
+
+
+
+document.getElementById("newInput").addEventListener("click", postDataIntoDB);
+
+function postDataIntoDB(){
+    var inputText = document.getElementById("inputToDo").value;
+    if (inputText == ""){
+        window.alert("Das ToDo Feld darf nicht leer sein!");
+    } else{
+        try {
+            fetch('http://localhost:3000/insertNewItemIntoDB', {
+              method: "POST", // or 'PUT'
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({itemList: inputText}),
+            });
+            location.reload();
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
+}
+
+
+
+/* asdjhksajd*/
+/*
+function setItemDone(itemId) {
+    fetch(`/updateToDoToDone/${itemId}`, {
+      method: 'UPDATE'
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      console.log('Todo was set to done successfully');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+    location.reload();
+}*/
+
+function setItemDone(itemId, isDone) {
+  console.log("set Item done test")
+  fetch(`http://localhost:3000/updateToDoToDone/${itemId}/${isDone}`, {
+    method: 'PATCH' // or 'PATCH' depending on your server-side implementation
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    //console.log('Todo was set to done successfully');
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+  location.reload();
+}
+
+
+
+function changeItem(itemId){
+  var inputText = document.getElementById("inputToDo").value;
+  if (inputText == ""){
+      window.alert("Das ToDo Feld darf nicht leer sein!");
+  } else{
+      try {
+          fetch(`http://localhost:3000/changeItemInTheDB/${itemId}`, {
+            method: "PATCH", // or 'PUT'
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({itemList: inputText}),
+          });
+          location.reload();
+      } catch (error) {
+          console.error("Error:", error);
+      }
+  }
+}
+
+
+
+
+
+function removeItemFromDB(itemId) {
+    fetch(`http://localhost:3000/specificToDo/${itemId}`, {
+      method: 'DELETE'
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      console.log('Todo deleted successfully');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+    location.reload();
+}
+
+
+
+
+document.getElementById("deleteAll").addEventListener("click", deleteAllItemsFromDB);
+
+
+function deleteAllItemsFromDB() {
+    fetch(`http://localhost:3000/deleteAllItems`, {
+      method: 'DELETE'
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      console.log('All Todos are deleted successfully');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+    location.reload();
+}
+
+
+/*
+
+const removeItem = async (id) => {
+    try {
+      const response = await fetch(`/specificToDo/${id}`, {
+        method: 'DELETE'
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      console.log('Todo deleted successfully');
+  
+      // Reload the page after successful deletion
+      location.reload();
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+  
+*/
+
+/*
+
+async function removeItem(itemId) {
+    try {
+      const response = await fetch(`/specificToDo/${itemId}`, {
+        method: 'DELETE'
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to delete todo item');
+      }
+
+      // Remove the deleted item from the UI
+      const listItem = document.getElementById(`todo-item-${itemId}`);
+      listItem.remove();
+    } catch (error) {
+      console.error('Error:', error);
+    }
+}
 
 
 */
 
 
-document.addEventListener("DOMContentLoaded", getAllTodos());
+
+
+
 
 function getAllTodos(){
     console.log("sucess");
 
-    fetch('http://localhost:5500/getAllTodos', {
+    var userInput = req.query.username;
+    var userPassword = req.query.password;
+
+    console.log(userInput);
+    console.log(userPassword);
+
+
+    fetch('http://localhost:3000/goToToDoList', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -25,6 +253,14 @@ function getAllTodos(){
     .then(response => response.json())
     .then(objectItems => {
 
+        console.log(req.query)
+
+
+        console.log(objectItems[0]);
+
+        console.log("test");
+
+        /*
         //console.log(objectItems[0].itemList);
         console.log(Object.keys(objectItems).length)
         let x = document.getElementById("list");
@@ -45,8 +281,10 @@ function getAllTodos(){
             "<button class='btn btnGoogle' onclick='changeItem(" + i + ")'><i class='material-icons'>edit</i></button>"+
             "&nbsp;&nbsp;"+
             "<button class='btn btnGoogle' onclick='removeItem(" + i + ")'><i class='material-icons'>delete</i></button></li>";
+
+            
         }
-    }
+    }*/
     })
 }
 
@@ -102,6 +340,7 @@ function activatedFktn() {
 
 */
 
+/*
 function clearInput(){
     document.getElementById("inputToDo").value = "";
 }
@@ -129,12 +368,13 @@ async function postNewInput() {
     }
 
 }
+*/
 
 document.getElementById("deleteAll").addEventListener("click", deleteAllItems);
 
 async function deleteAllItems(){
     try {
-      await fetch('http://localhost:5500/deleteAllItems', {
+      await fetch('http://localhost:3000/deleteAllItems', {
         method: "DELETE", // or 'PUT'
         headers: {
           "Content-Type": "application/json",
@@ -149,7 +389,7 @@ async function deleteAllItems(){
 
 async function deleteTodoItem(itemId) {
     try {
-      const response = await fetch(`/todos/${itemId}`, {
+      const response = await fetch(`http://localhost:3000/todos/${itemId}`, {
         method: 'DELETE'
       });
       
