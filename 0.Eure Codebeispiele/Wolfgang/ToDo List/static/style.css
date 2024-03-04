@@ -1,27 +1,42 @@
+
 body {
-
-    background-color: rgb(51, 153, 255);
-
-
+    background-color: rgb(18, 30, 39);
+    
 }
-
+#bodyLogin, #bodyregistrieren {
+    font-family: Arial, sans-serif;
+    background-color: rgb(18, 30, 39);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+#taskId{
+    display: flex;
+    flex-wrap:nowrap;
+    justify-content: center;
+    margin: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 h1 {
     display: block;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 3rem;
-    background-color: aquamarine;
-    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-}
+    background-color: #8EC5FC;
+background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
 
+box-shadow: 0px 10px 5px 0px rgba(165,165,165,0.75);
+-webkit-box-shadow: 0px 10px 5px 0px rgba(165,165,165,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(165,165,165,0.75);
+}
 
 #zuErledigen {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-
 }
 
 #hinzufügenbutton {
@@ -39,19 +54,50 @@ h1 {
     padding: 12px 44px;
     text-decoration: none;
     text-shadow: 0px 1px 0px #528ecc;
-
     margin: 10px;
 }
 
-#hinzufügenbutton:hover {
+#hinzufügenbutton:hover, .deleteButton:hover {
     background: linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
     background-color: #378de5;
 }
 
-#hinzufügenbutton:active {
+#hinzufügenbutton:active, .deleteButton:active {
     position: relative;
     top: 1px;
 }
+
+
+.deleteButton {
+	box-shadow:inset 0px 1px 0px 0px #cf866c;
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	background-color:#d0451b;
+	border-radius:3px;
+	border:1px solid #942911;
+	
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #854629;
+}
+.deleteButton:hover {
+	background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+	background-color:#bc3315;
+}
+.deleteButton:active {
+	position:relative;
+	top:1px;
+}
+#formDeleteButton{
+
+    width: 10px;
+    background-color: #1564ad;
+}
+
+        
 
 #textmanipulation {
     padding: 10px;
@@ -61,7 +107,6 @@ h1 {
     width: 250px;
     box-sizing: border-box;
     transition: border-color 0.3s;
-
 }
 
 div.task {
@@ -72,7 +117,6 @@ div.task {
 
 input[type="checkbox"] {
     margin-right: 10px;
-
 }
 
 #textmanipulation:focus {
@@ -80,58 +124,20 @@ input[type="checkbox"] {
     outline: none;
 }
 
-.deleteButton {
 
-    box-shadow: 3px 4px 0px 0px #1564ad;
-    background: linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
-    background-color: #79bbff;
-    border-radius: 5px;
-    border: 1px solid #337bc4;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: Arial;
-    font-size: 17px;
-    font-weight: bold;
-    padding: 3px 10px;
-    text-decoration: none;
-    text-shadow: 0px 1px 0px #528ecc;
-
-    margin: 10px;
-}
-
-.deleteButton:hover {
-    background: linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
-    background-color: #378de5;
-}
-
-#bodyLogin {
-    font-family: Arial, sans-serif;
-    background-color: rgb(51, 153, 255);
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-#bodyregistrieren{
-font-family: Arial, sans-serif;
-background-color: rgb(51, 153, 255);
-margin: 0;
-display: flex;
-align-items: center;
-justify-content: center;
-height: 100vh;
-}
 
 form {
-    background-color: aquamarine;
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   box-shadow: rgba(165,165,165,0.75) 0px 50px 100px -20px, rgba(243, 242, 242, 0.3) 0px 30px 60px -30px, rgba(42, 148, 255, 0.35) 0px -2px 6px 0px inset;
     width: 300px;
+    
     text-align: center;
 }
+
 
 label {
     display: block;
@@ -140,8 +146,39 @@ label {
     color: #333;
 }
 
-input {
+input[type="text"],
+input[type="date"] {
     width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+fieldset {
+    margin-bottom: 10px;
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center ;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.radio-buttons {
+    display: flex;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+input {
+   
     padding: 8px;
     border-radius: 5px;
     border-color: 8782ad;
@@ -150,7 +187,7 @@ input {
     box-sizing: border-box;
 }
 
-button {
+button, .button {
     background-color: #4caf50;
     color: #fff;
     padding: 10px 15px;
@@ -159,6 +196,95 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+button:hover, .button:hover {
     background-color: #45a049;
 }
+
+.task-list {
+ display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+  
+
+.task-card .task-name {
+    
+    font-weight: 150;
+    color: rgb(255, 255, 255);
+    letter-spacing: -0.02em;
+    line-height: 40px;
+    font-style: normal;
+    font-size: 28px;
+    padding-bottom: 8px;
+    
+}
+
+.task-card .priority {
+    margin-bottom: 10px;
+
+    letter-spacing: -0.02em;
+    line-height: 40px;
+    font-style: normal;
+    font-size: 28px;
+    padding-bottom: 8px;
+    
+}
+
+.task-card .due-date {
+    
+    line-height: 32px;
+    color: hsla(0, 8%, 93%, 0.5);
+    font-size: 16px;
+    max-width: 470px;
+}
+
+.task-card input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.task-card input[type="checkbox"]:checked + .task-name,
+.task-card input[type="checkbox"]:checked + .task-name + .priority,
+.task-card input[type="checkbox"]:checked + .task-name + .priority + .due-date {
+    text-decoration: line-through;
+    color: red;
+}
+
+
+
+.task-card {
+    width: 300px;
+    margin: 5px;
+    position: relative;
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid;
+    border-color: #1a171c;
+    background: linear-gradient(71deg, #080509, #1a171c, #080509);
+}
+
+
+
+
+.high {
+    color: red;
+}
+.middle {
+    color: orange;
+}
+.low {
+    color: green;
+}
+
+
+
+
+[type="checkbox"] {
+   
+    left: 15px;
+    top: -4px;
+    
+  }
+  
+
+  
