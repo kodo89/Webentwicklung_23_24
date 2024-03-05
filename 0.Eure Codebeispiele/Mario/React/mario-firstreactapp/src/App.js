@@ -3,13 +3,17 @@ import './App.css';
 import MyParentComponent from './components/MyParentComponent';
 import DiceGame from './components/DiceChallengeReact/DiceGame';
 import Counter from './components/Counter';
+import Formular from './components/Formular';
+
+
+
 
 function App() {
   return (
     <div className="App">
 
 
-      <DiceGame/>
+      <Formular/>
 
       {/* <Counter/> */}
 

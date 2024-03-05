@@ -2,6 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import MyParentComponent from './components/MyParentComponent';
 import DiceGame from './components/DiceChallengeReact/DiceGame';
+import Counter from './components/Counter';
+import NewGameButton from './components/DiceChallengeReact/NewGameButton';
+import Formulare from './components/Formulare';
 
 function App() {
   return (
@@ -22,7 +25,7 @@ function App() {
       </header>
       <MyParentComponent />  */}
 
-      <DiceGame/>
+      <Formulare/>
     </div>
   );
 }

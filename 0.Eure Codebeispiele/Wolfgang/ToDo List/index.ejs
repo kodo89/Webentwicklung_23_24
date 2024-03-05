@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>ToDo Liste</title>
+  </head>
+  <body>
+    <h1>Hallo, <%= username %></h1>
+<div id="taskId">
+    <form action="/task" method="post">
+      <h2>Füge eine Aufgabe hinzu!</h2>
+
+      <input type="hidden" id="userId" name="user_id" value="<%= userId %>" />
+
+      <label for="task">Was möchten Sie erledigen?</label>
+      <input type="text" id="task" name="task" required /><br />
+
+      <fieldset>
+        <legend>Wie wichtig ist Ihre Aufgabe?</legend>
+        <label for="low"> LOW
+        <input type="radio" id="low" name="priority" value="low" />
+    </label>
+    <br>
+        <label for="middle"> MIDDLE 
+        <input type="radio" id="middle" name="priority" value="middle" />
+    </label><br>
+        <label for="high"> HIGH
+        <input type="radio" id="high" name="priority" value="high" />
+    </label>
+      </fieldset>
+
+      <label for="deadline">Gibt es eine Deadline?</label>
+      <input type="date" id="deadline" name="due_date" /><br />
+
+      
+
+      <button type="submit">Hinzufügen</button>
+    </form>
+</div>
+    
+
+    <div class="task-list">
+        <% tasks.sort((a, b) => {
+           // Vergleichen nach Priorität
+    const priorityOrder = { high: 3, middle: 2, low: 1 };
+    const priorityA = priorityOrder[a.priority];
+    const priorityB = priorityOrder[b.priority];
+    
+    if (priorityA !== priorityB) {
+        return priorityB - priorityA; // Höhere Priorität zuerst
+    }
+
+    // Falls beide Aufgaben die gleiche Priorität haben, vergleichen nach dem Fälligkeitsdatum
+    if (priorityA === priorityB && priorityA !== 3) { // Nur bei middle und low Priorität
+        const aDate = new Date(a.due_date);
+        const bDate = new Date(b.due_date);
+
+        // Falls das Fälligkeitsdatum näher ist, wird a zuerst angezeigt
+        if (aDate < bDate) return -1;
+        if (aDate > bDate) return 1;
+    }
+
+    // Wenn die Aufgaben die gleiche Priorität und das gleiche Fälligkeitsdatum haben oder high priority, bleibt die Reihenfolge unverändert
+    return 0;
+        }).forEach(task => { %>
+            <div class="task-card <%= task.completed ? 'completed' : '' %>">
+                <input type="checkbox"  id="task<%= task.id %>" name="task<%= task.id %>"<% if (task.completed) { %> checked <% } %>>
+                <label for="task<%= task.id %>" class="task-name"><%= task.task %></label>
+                <span class="priority <%= task.priority %>">Priorität: <%= task.priority %></span>
+                <% if (task.due_date) { %>
+                    <p class="due-date">Fälligkeitsdatum: <%= task.due_date %></p>
+                <% } %>
+                <form id="formDeleteButton" action="/deleteTask" method="post">
+        <input type="hidden" name="taskName" value="<%= task.task %>">
+        <button type="submit" class="deleteButton">Löschen</button>
+    </form>
+            </div>
+        <% }); %>
+    </div>
+  </body>
+</html>

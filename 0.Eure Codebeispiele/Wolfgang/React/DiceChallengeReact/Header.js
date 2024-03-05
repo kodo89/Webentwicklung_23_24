@@ -1,1 +1,0 @@
-//Hier kommt deine Komponente für den Header Bsp: Spieler 1 hat gewonnen 🚩

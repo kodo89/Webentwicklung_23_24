@@ -5,10 +5,10 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     var password = document.getElementById('password').value;
 
     // Hardcodierte Testdaten
-    var hardcoded_username = 'marwa';
-    var hardcoded_password = 'password';
+    var username = 'marwa';
+    var password = 'password';
 
-    if (username === hardcoded_username && password === hardcoded_password) {
+    if (username === username && password === password) {
         window.location.href="todo.html";
     } else {
         alert('Benutzername oder Passwort falsch!');
@@ -27,14 +27,23 @@ function addTask() {
   
     const li = document.createElement('li');
     li.innerHTML = `
-      <span>${taskInput.value}</span>
+      <span id = ${taskInput.value}>${taskInput.value}</span>
+      <input id = ${taskInput.value} value = ${taskInput.value}/>
       <button onclick="deleteTask(this)"> <i class="fa-solid fa-trash"></i></button>
+      <button onclick="editTask(${taskInput.id})"> <i class="fa-solid fa-edit"></i></button>
     `;
   
     taskList.appendChild(li);
     taskInput.value = '';
   }
-  
+
+  //Function to edit a task
+  function editTask(button){
+
+  console.log(button);
+    }
+
+
   // Function to delete a task
   function deleteTask(button) {
     const li = button.parentNode;
@@ -42,4 +51,3 @@ function addTask() {
   
     taskList.removeChild(li);
   }
-  
