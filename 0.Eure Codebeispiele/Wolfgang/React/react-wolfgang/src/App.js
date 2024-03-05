@@ -4,14 +4,15 @@ import MyParentComponent from './components/MyParentComponent';
 import DiceGame from './components/DiceChallengeReact/DiceGame';
 import Counter from './components/Counter';
 import Dice from './components/DiceChallengeReact/Dice';
+import MyForm from './components/form';
 
 function App() {
   return (
     <div className="App">
 
-<DiceGame/>
 
 
+<MyForm/>
 
 
    {  

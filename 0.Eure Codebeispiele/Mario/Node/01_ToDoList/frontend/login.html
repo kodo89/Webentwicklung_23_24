@@ -13,9 +13,11 @@
     <div class="container border border-black border-1s rounded-3 mt-5 shadow">
         <h1>Login</h1>
 
-        <input id="userName" class="form-control mt-3" type="text" placeholder="Username" aria-label="default input example">
-        <input id="password" class="form-control mt-3" type="password" placeholder="Password" aria-label="default input example">
-        <button id="loginButton" type="button" class="btn btn-outline-dark mt-3 mb-1">Submit</button>
+        <form action="/goToToDoList" method="GET">
+            <input name="username" id="userName" class="form-control mt-3" type="text" placeholder="Username" aria-label="default input example">
+            <input name="password" id="password" class="form-control mt-3" type="password" placeholder="Password" aria-label="default input example">
+            <button id="loginButton" type="submit" class="btn btn-outline-dark mt-3 mb-1">Submit</button>
+        </form>
         <p><a href="./resgistration.html" class="link">Not registered? Do it now!</a></p>
     </div>
 

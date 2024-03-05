@@ -11,13 +11,12 @@
 <body>
 
     <div class="container border border-black border-1s rounded-3 mt-5 shadow">
-        <h1>Registration</h1>
-        <form id="resetRegistration">
-            <input id="userNameRegistration" class="form-control mt-3" type="text" placeholder="Enter Username" aria-label="default input example">
-            <input id="passwordRegistration" class="form-control mt-3" type="password" placeholder="Enter Password" aria-label="default input example">
-            
+        <h1>Register now!</h1>
+        <form action="insertNewUserIntoDB" method="GET" id="resetRegistration">
+            <input name="userName" id="userNameRegistration" class="form-control mt-3" type="text" placeholder="Enter Username" aria-label="default input example">
+            <input name="password" id="passwordRegistration" class="form-control mt-3" type="password" placeholder="Enter Password" aria-label="default input example">
+            <button id="backToLoginButton" type="submit" class="btn btn-outline-dark mt-3 mb-3">Click to register and go back to Login now!</button>
         </form>
-        <button id="backToLoginButton" type="button" class="btn btn-outline-dark mt-3 mb-3">Click to register and go back to Login now!</button>
     </div>
 
     <script src="./functionsRegister.js"></script>
