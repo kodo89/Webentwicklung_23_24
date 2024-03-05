@@ -10,6 +10,7 @@ const port = 3000;
 
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+//import { Session } from "inspector";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Enable CORS for all routes
@@ -64,8 +65,8 @@ app.get("/insertNewUserIntoDB", (req, res) => {
               // User already exists
               console.log("User already exists");
               //res.status(200).json({ action: "redirect", destination: "/registration" });
-              //res.status(200).json({ alert: "User already exists" });
-              res.redirect("/registration");
+              //res.status(200).json({ success: true, message: "User already exists" });
+              res.redirect("/registration?authentification=failed");
               //res.status(409).send("User already exists");
           } else {
               // Insert the new user into the database
