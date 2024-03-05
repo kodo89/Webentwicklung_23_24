@@ -29,6 +29,7 @@ function addTask() {
     li.innerHTML = `
       <span>${taskInput.value}</span>
       <button onclick="deleteTask(this)"> <i class="fa-solid fa-trash"></i></button>
+      <button onclick="editTask(this)"> <i class="fa-solid fa-edit"></i></button>
     `;
   
     taskList.appendChild(li);
@@ -43,3 +44,9 @@ function addTask() {
     taskList.removeChild(li);
   }
   
+  function editTask(button){
+    const li = button.parentNode;
+    const taskList = li.parentNode;
+
+    taskList.removeChild(li);
+  }
