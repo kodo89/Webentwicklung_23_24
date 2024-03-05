@@ -1,27 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 
 
-function Counter(){
-    const [count, setCount] = useState(0)
-    function handleIncrement(){
-        setCount(count+1);
-        console.log("Count: ",count);
-    }
-    function minus(){
-    setCount(count-1);
-    console.log("Count: ",count);
-}
+export default function Counter(){
+    const [count, setCount] = useState(0);
 
-    return(
-        <div style={{color: "white"}}>
-            {count}
-            <button onClick={handleIncrement}><h2> + </h2> </button>
-            <button onClick={minus}><h2> - </h2> </button>
-        </div>
- 
- 
-    )
-}
+    useEffect(() => {
+      console.log('Komponente wurde neu gerendert');
+    });
+  
+    useEffect(() => {
+      console.log('Komponente wurde zum ersten Mal neu gemountet');
+    }, []);
 
-export default Counter
+    useEffect(() => {
+      console.log('Count:', count);
+    }, [count]);
+  
+    return (
+      <div>
+        <p>Count: {count}</p>
+        <button onClick={() => setCount(count + 1)}>Increment</button>
+        <button onClick={() => setCount(count - 1)}>Increment</button>
+      </div>
+    );
+}
