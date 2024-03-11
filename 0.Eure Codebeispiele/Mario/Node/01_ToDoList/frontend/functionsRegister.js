@@ -1,4 +1,74 @@
 
+
+
+document.addEventListener('DOMContentLoaded', giveMeAnAlert);
+
+
+function giveMeAnAlert() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const authStatus = urlParams.get('authentification');
+    if (authStatus === 'failed') {
+        alert('User already exists!');
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}*/
+
+
+
+
+
 /*
 async function checkUserExists() {
     const userName = document.getElementById('userNameRegistration').value;

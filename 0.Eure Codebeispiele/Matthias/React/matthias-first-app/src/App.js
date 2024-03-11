@@ -7,7 +7,7 @@ import UserInfoForm from "./components/UserInfoForm";
 
 function App() {
   return (
-    <UserInfoForm />
+    <Counter />
   );
 }
 

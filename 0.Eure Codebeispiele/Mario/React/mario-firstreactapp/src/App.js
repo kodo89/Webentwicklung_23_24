@@ -13,9 +13,9 @@ function App() {
     <div className="App">
 
 
-      <Formular/>
+      {/*<Formular/>*/}
 
-      {/* <Counter/> */}
+      <Counter/>
 
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

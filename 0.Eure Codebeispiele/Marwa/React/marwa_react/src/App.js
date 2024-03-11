@@ -25,7 +25,7 @@ function App() {
       </header>
       <MyParentComponent />  */}
 
-      <Formulare/>
+      <Counter/>
     </div>
   );
 }
