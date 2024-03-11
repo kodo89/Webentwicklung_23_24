@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 
 function Counter() {
     const [count, setCount] = useState(0)
+
+    useEffect(() => {
+      console.log("Komponente wurde neuu gerendert");
+    })
+
+    useEffect(() => {
+      console.log("Komponente wurde neuu gerendert");
+    },[])
+
+    useEffect(() => {
+      console.log("Komponente wurde neuu gerendert");
+    })
 
     function handleIncrement(){
       setCount(count+1)

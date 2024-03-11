@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import cors from "cors"
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
@@ -9,6 +10,7 @@ const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('../frontend'));
+app.use(cors())
 
 app.get("/test", (req, res) => {
   res.sendFile(__dirname + "/test.html");
@@ -20,9 +22,20 @@ app.get("/random", (req, res) => {
   res.json(jokes[randomIndex]);
 });
 
-//2. GET a specific joke
 
-//3. GET a jokes by filtering on the joke type
+//Get a specific joke
+app.get("/jokes/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const foundJoke = jokes.find((joke) => joke.id === id);
+  res.json(foundJoke);
+});
+
+//Filter jokes by type
+app.get("/filter", (req, res) => {
+  const type = req.query.type;
+  const filteredActivities = jokes.filter((joke) => joke.jokeType === type);
+  res.json(filteredActivities);
+});
 
 //4. POST a new joke
 
