@@ -5,8 +5,12 @@ import DiceGame from './components/DiceChallengeReact/DiceGame';
 import Counter from './components/Counter';
 import NewGameButton from './components/DiceChallengeReact/NewGameButton';
 import Formulare from './components/Formulare';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Login from "./components/Login";
 
-function App() {
+
+export default function App() {
   return (
     <div className="App">
       {/* <header className="App-header">
@@ -25,11 +29,16 @@ function App() {
       </header>
       <MyParentComponent />  */}
 
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Login />} />
+          <Route path="/login" element={<Login/>} />
+        </Routes>
+      </BrowserRouter>
+
+
       <Counter/>
     </div>
   );
 }
 
-
-
-export default App;
