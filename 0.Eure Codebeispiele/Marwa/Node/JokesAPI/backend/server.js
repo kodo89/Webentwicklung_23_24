@@ -9,21 +9,17 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 
-const app = express();
+const app = express(); 
 const port = 3000;
-
-
 
 
 //Database connection
 const connection = mysql.createConnection({
-  host: 'localhost',
+  host: 'localhost ',
   user: 'root',
   password: '',
-  database: 'excercises'
+  database: 'jokes'
 });
-
-
 
 connection.connect((err) => {
   if(err){
@@ -32,8 +28,6 @@ connection.connect((err) => {
     console.log("Erfolgreich mit der Datenbank verbunden");
   }
 });
-
-
 
 
 app.use(bodyParser.json());

@@ -1,21 +1,22 @@
 import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
-
+import cors from "cors";
 
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import axios from "axios";
-
 
 const app = express();
-const port = 3000;
+const port = 3010;
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("../frontend"));
+app.use(cors());
+
+app.use(bodyParser.json());
 
 
 app.get("/", (req, res) => {
