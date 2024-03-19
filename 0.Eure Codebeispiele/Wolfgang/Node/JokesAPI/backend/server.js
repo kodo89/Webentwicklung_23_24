@@ -4,10 +4,13 @@ import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import mysql from "mysql";
+import cors from "cors";
 
 const app = express();
 const port = 3000;
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+app.use(cors());
 
 const connection = mysql.createConnection({
   host:'localhost',
@@ -34,7 +37,7 @@ app.get("/", (req, res) => {
 });
 
 //1. GET a random joke
-/*app.get("/random", ( req, res) => {
+app.get("/random", ( req, res) => {
  
   var jokeLength = jokes.length;
 
@@ -43,7 +46,7 @@ app.get("/", (req, res) => {
   let joke = jokes;
 
   res.send(joke);
-});*/
+});
 
 app.get("/random", ( req, res) => {
  
@@ -57,6 +60,27 @@ app.get("/random", ( req, res) => {
     }
 
     res.json(results);
+  });
+});
+
+
+app.get("/jokeById/:id", (req, res) => {
+  const jokeId = req.params.id;
+  const sqlQuery = 'SELECT * FROM jokes WHERE id = ?';
+
+  connection.query(sqlQuery, [jokeId], (error, results, fields) => {
+    if (error) {
+      console.error('Fehler bei der SQL-Abfrage:', error);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+
+    if (results.length === 0) {
+      res.status(404).send('Joke not found');
+      return;
+    }
+
+    res.json(results[0]); // 
   });
 });
 
@@ -82,7 +106,7 @@ app.get("/random", ( req, res) => {
 app.listen(port, () => {
   console.log(`Successfully started server on port ${port}.`);
 });
-
+/*
 var jokes = [
   {
     id: 1,
@@ -654,4 +678,4 @@ var jokes = [
     jokeText: "What do you call fake spaghetti? An impasta!",
     jokeType: "Food",
   },
-];
+];*/
