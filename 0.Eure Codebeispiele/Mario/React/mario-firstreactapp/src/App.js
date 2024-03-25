@@ -4,19 +4,51 @@ import MyParentComponent from './components/MyParentComponent';
 import DiceGame from './components/DiceChallengeReact/DiceGame';
 import Counter from './components/Counter';
 import Formular from './components/Formular';
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Menu from './components/Menu';
+import RandomJoke from './components/RandomJoke';
+import SpecificJoke from './components/SpecificJoke';
 
 
 
 function App() {
   return (
-    <div className="App">
 
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Menu/>} />
+        <Route path="randomJokeReact" element={<RandomJoke/>} />
+        <Route path="specificjokeReact/:id" element={<SpecificJoke/>} />
+
+
+
+
+      </Routes>
+    </BrowserRouter>
+
+
+   
+    
+  );
+}
+
+
+
+
+
+export default App;
+
+
+
+
+ /*
+    <div className="App">
+    */
 
       {/*<Formular/>*/}
 
-      <Counter/>
-
+      /*<Counter/>*/
+      
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -32,12 +64,5 @@ function App() {
         </a>
       </header>
       <MyParentComponent /> */}
-    </div>
-  );
-}
-
-
-
-
-
-export default App;
+      /*
+    </div>*/

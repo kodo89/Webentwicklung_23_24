@@ -46,6 +46,73 @@ app.use(express.static('../frontend'));
 
 
 
+
+
+
+
+// APIs for react
+
+app.get("/randomJokeReact", (req, res) => {
+  let min = Math.ceil(0);
+  let max = Math.floor(101);
+  let index = Math.floor(Math.random() * (max - min) + min);
+  res.send(jokes[index]);
+})
+
+
+/*
+app.get('/jokes/:id', (req, res) => {
+  const jokeId = parseInt(req.params.id);
+  const joke = jokes.find(j => j.id === jokeId);
+  if (joke) {
+    res.json({ jokeText: joke.jokeText });
+  } else {
+    res.status(404).json({ error: "Joke not found" });
+  }
+});
+*/
+
+
+
+app.get('/specificjokeReact/:id', (req, res) => {
+  const query = "SELECT * FROM jokes WHERE id = "+req.params.id+";"
+  console.log(req.params.id)
+  connection.query(query, (error, results) => {
+    if(error){
+      res.status(500).send("Interner Serverfehler");
+    } else {
+      res.json(results[0]);
+      console.log('The solution2 is: ', results);
+    }
+  });
+  //connection.end();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.get("/dbendpoint", (req, res) => {
   const query  = 'Select * FROM jokes';
   connection.query(query, (error, results) => {
@@ -145,6 +212,7 @@ app.get("/random", (req, res) => {
 
 //2. GET a specific joke
 // http://localhost:3000/jokes/1
+/*
 app.get("/jokes/:id", (req, res) => {
   
   let type = req.params.id;
@@ -153,7 +221,7 @@ app.get("/jokes/:id", (req, res) => {
 
   res.json(result);
 
-});
+});*/
 
 
 //3. GET a jokes by filtering on the joke type

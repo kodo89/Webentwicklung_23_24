@@ -6,7 +6,7 @@ export default function SpecificJoke() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch("http://localhost:3000/jokes/"+id)
+    fetch("/jokes/"+id)
       .then((response) => response.json())
       .then((data) => setJoke(data.jokeText))},[]
   );

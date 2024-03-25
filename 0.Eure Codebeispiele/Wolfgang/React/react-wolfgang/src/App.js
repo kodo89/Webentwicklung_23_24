@@ -5,38 +5,26 @@ import DiceGame from './components/DiceChallengeReact/DiceGame';
 import Counter from './components/Counter';
 import Dice from './components/DiceChallengeReact/Dice';
 import MyForm from './components/form';
+import random from '/random'
 
 function App() {
   return (
-    <div className="App">
-
-
-
-<MyForm/>
-
-
-   {  
    
-   
-   
-   /* <MyParentComponent/>
+
+    
+<BrowserRouter>
+<Routes>
+  <Route path="/Menu" element={<MenuComponent/>}/>
+
+</Routes>
+</BrowserRouter>
 
 
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-  </header>*/}
-    </div>
+
+
+   
+ 
+    
   );
 }
 
