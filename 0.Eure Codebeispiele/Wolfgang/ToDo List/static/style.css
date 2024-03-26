@@ -259,7 +259,7 @@ justify-content: center;
     padding: 40px;
     border-radius: 20px;
     border: 2px solid;
-    border-color: #1a171c;
+    border-color: #8b09e2;
     background: linear-gradient(71deg, #080509, #1a171c, #080509);
 }
 
@@ -268,12 +268,15 @@ justify-content: center;
 
 .high {
     color: red;
+    border-color: red;
 }
 .middle {
     color: orange;
+    border-color: orange;
 }
 .low {
     color: green;
+    border-color: green;
 }
 
 

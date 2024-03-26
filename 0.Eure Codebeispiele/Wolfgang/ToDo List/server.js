@@ -46,11 +46,9 @@ app.get("/", (req, res) => {
 
 app.get("/index", (req, res) => {
   const userId = req.session.userId;
-
   if (!userId) {
     return res.status(401).json({ message: "Nicht autorisiert" });
   }
-
   // SQL-Abfrage zum Abrufen der Aufgaben des aktuellen Benutzers aus der Datenbank
   const query = "SELECT * FROM todos WHERE user_id = ?";
 

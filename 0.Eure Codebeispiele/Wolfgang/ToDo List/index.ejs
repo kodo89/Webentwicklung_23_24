@@ -61,6 +61,7 @@
     }
 
     // Falls beide Aufgaben die gleiche Priorität haben, vergleichen nach dem Fälligkeitsdatum
+
     if (priorityA === priorityB && priorityA !== 3) { // Nur bei middle und low Priorität
         const aDate = new Date(a.due_date);
         const bDate = new Date(b.due_date);
@@ -73,13 +74,15 @@
     // Wenn die Aufgaben die gleiche Priorität und das gleiche Fälligkeitsdatum haben oder high priority, bleibt die Reihenfolge unverändert
     return 0;
         }).forEach(task => { %>
-            <div class="task-card <%= task.completed ? 'completed' : '' %>">
+            <div class="task-card <%= task.priority %> <%= task.completed ? 'completed' : '' %>">
                 <input type="checkbox"  id="task<%= task.id %>" name="task<%= task.id %>"<% if (task.completed) { %> checked <% } %>>
                 <label for="task<%= task.id %>" class="task-name"><%= task.task %></label>
                 <span class="priority <%= task.priority %>">Priorität: <%= task.priority %></span>
                 <% if (task.due_date) { %>
                     <p class="due-date">Fälligkeitsdatum: <%= task.due_date %></p>
                 <% } %>
+
+                
                 <form id="formDeleteButton" action="/deleteTask" method="post">
         <input type="hidden" name="taskName" value="<%= task.task %>">
         <button type="submit" class="deleteButton">Löschen</button>
