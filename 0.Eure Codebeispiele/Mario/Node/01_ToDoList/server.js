@@ -176,7 +176,7 @@ app.patch('/updateToDoToDone/:id/:isDone', (req, res) => {
 
   connection.query(query, function (err, result) {
     if (err){
-      throw err
+      throw err();
     } else{
       console.log("1 record was updated");
     }
@@ -197,7 +197,7 @@ app.patch('/changeItemInTheDB/:id', (req, res) => {
 
   connection.query(query, function (err, result) {
     if (err){
-      throw err
+      throw err();
     } else{
       console.log("1 record was updated");
     }
@@ -213,7 +213,7 @@ app.delete('/specificToDo/:id', (req, res) => {
 
   connection.query(query, function (err, result) {
     if (err){
-      throw err
+      throw err();
     } else{
       console.log("1 record was deleted");
     }
