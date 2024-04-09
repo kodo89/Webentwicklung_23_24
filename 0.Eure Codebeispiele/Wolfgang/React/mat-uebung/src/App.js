@@ -1,6 +1,8 @@
 
+import { Checkbox } from "@mui/material";
 import "./App.css";
 import BasicButtons from "./Button.js";
+import Checkboxes from "./Checkbox.js";
 import BasicStack from "./Stack.js";
 
 
@@ -13,7 +15,11 @@ function App() {
 
         <BasicButtons variant="text">Text</BasicButtons>
       </header>
-    </div>
+
+      <Checkbox/>
+      <Checkbox/><Checkbox/><Checkbox/><Checkbox/><Checkbox/><Checkbox/>
+        
+            </div>
   );
 }
 

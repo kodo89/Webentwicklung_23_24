@@ -1,10 +1,12 @@
 import React from 'react';
 
+
+
 export default function Form() {
   return (
     <>
     <div id="taskId">
-      <form action="/task" method="post">
+      <form action="task" method="post">
         <h2>Füge eine Aufgabe hinzu!</h2>
 
         <input type="hidden" id="userId" name="user_id" value="user_id" />

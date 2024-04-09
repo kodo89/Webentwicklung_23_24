@@ -6,8 +6,6 @@ name:"",
 email:"",
 age:""
     });
-
-
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData({
@@ -15,19 +13,14 @@ age:""
             [name]: value
         });
     };
-
-
 const handleSubmit = (event)  => {
     event.preventDefault();
     console.log(formData);
-
 }
-    
-
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name:</label><br />
-            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required /><br /><br />
+            <label htmlFor="name" style={{color:"red"}}>Name:</label><br />
+            <input type="text" id="name" name="name"  value={formData.name} onChange={handleChange} required /><br /><br />
 
             <label htmlFor="email">E-Mail:</label><br />
             <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required /><br /><br />
@@ -38,8 +31,5 @@ const handleSubmit = (event)  => {
             <input type="submit" value="Absenden" />
         </form>
              
-
-
-      
     );
 }
