@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo-List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styling/styleToDo.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+
+<?php
+
+$myToDos = ["Einkaufen"]
+    
+    <div class="container border border-black border-1s rounded-3 mt-5 shadow">
+        <div class="mt-2 col-10">
+            <h1>ToDo-List</h1>
+            <div id="clear" class="input-group mb-3 ">
+                <input id="inputToDo" type="text" class="form-control" placeholder="Input your ToDo here" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button id="newInput" class="btn btn-outline-dark" type="button" id="button-addItem"><i class="material-icons btnInsert">done</i></button>
+                <button id="deleteAll" class="btn btn-outline-dark" type="button" id="button-deleteAllItems"><i class="material-icons btnInsert">folder_delete</i></button>
+            </div>
+        </div>
+        <div class="mt-2 col-12 mb-3">
+            <ul id="list" class="list-group list-group-flush">
+                
+            
+                <li class="list-group-item" id="ItemId1">An item
+                    <button class="btn btnGoogle"><i class="material-icons">done</i></button>
+                    <button class="btn btnGoogle"><i class="material-icons">edit</i></button>
+                    <button class="btn btnGoogle"><i class="material-icons">delete</i></button>
+                </li>
+                <li class="list-group-item" id="ItemId1">An item
+                    <button class="btn btnGoogle"><i class="material-icons">done</i></button>
+                    <button class="btn btnGoogle"><i class="material-icons">edit</i></button>
+                    <button class="btn btnGoogle"><i class="material-icons">delete</i></button>
+                </li>
+            
+                
+
+            </ul>
+        </div>
+    </div>
+?>
+</body>
