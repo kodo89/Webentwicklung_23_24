@@ -1,7 +1,7 @@
 
 import './App.css';
-import Form from './Form';
-import TodoList from './ToDoListe';
+import Form from './components/Form';
+import TodoList from './components/ToDoListe';
 
 
 
