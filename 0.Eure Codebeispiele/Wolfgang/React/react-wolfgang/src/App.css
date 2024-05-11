@@ -7,6 +7,10 @@
   pointer-events: none;
 }
 
+.App-name{
+  color: rgb(255, 0, 13);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -35,4 +39,6 @@
   to {
     transform: rotate(360deg);
   }
+
+
 }

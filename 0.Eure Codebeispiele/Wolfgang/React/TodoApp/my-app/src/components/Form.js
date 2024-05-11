@@ -1,13 +1,15 @@
 import React from 'react';
 
+
+
 export default function Form() {
   return (
     <>
     <div id="taskId">
-      <form action="/task" method="post">
+      <form action="http://localhost:3001/task" method="post">
         <h2>Füge eine Aufgabe hinzu!</h2>
 
-        <input type="hidden" id="userId" name="user_id" value="user_id" />
+        <input type="hidden" id="userId" name="user_id" value="1" />
 
         <label htmlFor="task">Was möchten Sie erledigen?</label>
         <input type="text" id="task" name="task" required /><br />

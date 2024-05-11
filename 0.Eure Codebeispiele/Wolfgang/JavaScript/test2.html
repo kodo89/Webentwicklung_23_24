@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuen Film erstellen</title>
+</head>
+<body>
+    <h1>Neuen Film erstellen</h1>
+    <form id="movieForm">
+        <label for="title">Titel:</label>
+        <input type="text" id="title" name="title" required><br><br>
+        <!-- Weitere Felder für andere Eigenschaften des Films hier hinzufügen -->
+
+        <button type="submit">Film erstellen</button>
+    </form>
+
+    <script>
+        document.getElementById('movieForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const movieData = {};
+            formData.forEach((value, key) => {
+                movieData[key] = value;
+            });
+
+            fetch('http://deine-domain/api/new/movie', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(movieData),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Fehler beim Erstellen des Films');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Neuer Film erstellt:', data);
+                // Hier könntest du eine Erfolgsmeldung anzeigen oder die Seite aktualisieren, um den neuen Film anzuzeigen
+            })
+            .catch(error => {
+                console.error('Fehler:', error);
+                // Hier könntest du eine Fehlermeldung anzeigen
+            });
+        });
+    </script>
+</body>
+</html>
