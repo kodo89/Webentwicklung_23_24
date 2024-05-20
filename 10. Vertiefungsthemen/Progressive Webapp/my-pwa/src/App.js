@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy} from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./components/style.css";
+import Login from "./components/Login.js";
+import SignUp from "./components/SignUp.js";
 
-function App() {
+const UserWelcome = lazy(() => import("./components/UserWelcome.js"));
+const PrivateRoutes = lazy(() => import("./components/PrivateRoutes.js"));
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="*" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route element={<PrivateRoutes />}>
+          <Route path="/userwelcome" element={<UserWelcome />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
