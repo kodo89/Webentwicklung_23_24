@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -61,9 +61,9 @@ export default function Login() {
           Login
         </button>
         Signup new user{" "}
-        <a href="./" onClick={() => navigate("../signup")}>
+        <Link to={"../signup"}>
           here
-        </a>
+        </Link>
         {error && <p className="message">{error}</p>}
       </form>
     </div>
