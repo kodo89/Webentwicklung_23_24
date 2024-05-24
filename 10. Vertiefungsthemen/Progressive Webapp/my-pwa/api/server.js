@@ -3,19 +3,21 @@ import cors from "cors";
 import session from "express-session";
 import mysql from "mysql";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const app = express();
 const port = 5000;
 
-app.use(cors());
+const jwtSecret = "your_jwt_secret_key";
 
+app.use(cors());
 app.use(express.json());
 app.use(
   session({
-    secret: "your_secret_key", // Change this to a secret key of your choice
+    secret: "your_secret_key", 
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false }, // Set secure to true if using HTTPS
+    cookie: { secure: false }, 
   })
 );
 
@@ -24,6 +26,23 @@ function checkSession(req, res, next) {
     next();
   } else {
     res.status(401).json({ error: "Not authenticated" });
+  }
+}
+
+function verifyToken(req, res, next) {
+  const token = req.headers["authorization"];
+  console.log(token)
+  if (token) {
+    jwt.verify(token, jwtSecret, (err, decoded) => {
+      if (err) {
+        return res.status(401).json({ error: "Invalid token" });
+      } else {
+        req.username = decoded.username;
+        next();
+      }
+    });
+  } else {
+    return res.status(401).json({ error: "No token provided" });
   }
 }
 
@@ -69,7 +88,7 @@ app.post("/loginBasicAuth", (req, res) => {
         res.status(500).json({ error: "Internal server error" });
       }
     } else {
-      res.status(401).json({ error: "Invalid credential" });
+      res.status(401).json({ error: "Invalid credentials" });
     }
   });
 });
@@ -99,10 +118,9 @@ app.post("/signup", (req, res) => {
           db.query(sql, [username, hash], async (err, results) => {
             if (err) {
               console.error("Error executing query:", err);
-              res.status(500).json({ error: "Internal server errors" });
+              res.status(500).json({ error: "Internal server error" });
               return;
-            }
-            else{
+            } else {
               res.status(200).json({ message: "User signed up successfully" });
             }
           });
@@ -112,10 +130,46 @@ app.post("/signup", (req, res) => {
   });
 });
 
+app.post("/loginTokenAuth", (req, res) => {
+  const { username, password } = req.body;
+
+  const sql = "SELECT * FROM users WHERE username = ?";
+  db.query(sql, [username], async (err, results) => {
+    if (err) {
+      console.error("Error executing query:", err);
+      res.status(500).json({ error: "Internal server error" });
+      return;
+    }
+
+    if (results.length > 0) {
+      const user = results[0];
+
+      try {
+        const match = await bcrypt.compare(password, user.password);
+        if (match) {
+          const token = jwt.sign({ username: username }, jwtSecret, { expiresIn: '1h' });
+          res.json({ message: "Token generated", token: token });
+        } else {
+          res.status(401).json({ error: "Invalid credentials" });
+        }
+      } catch (err) {
+        console.error("Error comparing passwords:", err);
+        res.status(500).json({ error: "Internal server error" });
+      }
+    } else {
+      res.status(401).json({ error: "Invalid credentials" });
+    }
+  });
+});
+
 app.get("/privatearea", checkSession, (req, res) => {
   const username = req.session.username;
   res.json({ message: "Session info", username: username });
+});
 
+app.get("/privateareaToken", verifyToken, (req, res) => {
+  const username = req.username;
+  res.json({ message: "Token info", username: username });
 });
 
 app.post("/logout", checkSession, (req, res) => {
@@ -123,9 +177,8 @@ app.post("/logout", checkSession, (req, res) => {
     if (err) {
       console.error('Error destroying session:', err);
       return res.status(500).send('Error destroying session');
-    }
-    else{
-      return res.status(200).send({mesage:"Logout"})
+    } else {
+      return res.status(200).send({ message: "Logout" });
     }
   });
 });
