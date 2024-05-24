@@ -13,7 +13,7 @@ export default function UserWelcomeToken() {
 
   return (
     <div className="container">
-      <h1>Hello {currentUserData.username}</h1>
+      <h1>Hello From Token Authentication {currentUserData.username}</h1>
       <button style={{width:"250px"}} onClick={handleLogout}>logout</button>
     </div>
   );
