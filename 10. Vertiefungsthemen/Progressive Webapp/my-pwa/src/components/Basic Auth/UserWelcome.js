@@ -28,7 +28,7 @@ export default function UserWelcome() {
 
   return (
     <div className="container">
-      <h1>Hello {currentUserData.username}</h1>
+      <h1>Hello from Basic Authentication {currentUserData.username}</h1>
       <button style={{width:"250px"}} onClick={() => logout()}>logout</button>
     </div>
   );
