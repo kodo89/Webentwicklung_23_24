@@ -8,6 +8,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleLogin = (event) => {
+    e.preventDefault();
     loginBasicAuth(username, password);
     //loginJWTToken(username,password)
   };
