@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "create-nextjs-app": "^2.0.2",
+    "node": "^22.4.0"
+  }
+}
