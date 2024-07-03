@@ -7,8 +7,13 @@ export default function Login() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+<<<<<<< HEAD
+  const handleLogin = (event) => {
+    e.preventDefault();
+=======
   const handleBasicLogin = (event) => {
     event.preventDefault()
+>>>>>>> 29ffc7ca17f93c7173a577ca69e975aa19f21d16
     loginBasicAuth(username, password);
   };
 
